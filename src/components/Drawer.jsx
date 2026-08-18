@@ -1,6 +1,13 @@
 import { NavLink } from 'react-router-dom';
-
+import { useAuth } from '../context/AuthContext';
 export default function Drawer({ isOpen, toggleDrawer }) {
+  const { user, logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    toggleDrawer();
+  };
+
   return (
     <>
       {isOpen && <div className="drawer-overlay" onClick={toggleDrawer}></div>}
@@ -31,6 +38,25 @@ export default function Drawer({ isOpen, toggleDrawer }) {
             <li><NavLink to="/customize" onClick={toggleDrawer}>CUSTOMIZE</NavLink></li>
             <li><NavLink to="/saved" onClick={toggleDrawer}>SAVED</NavLink></li>
             <li><NavLink to="/cart" onClick={toggleDrawer}>CART</NavLink></li>
+            <hr />
+
+            {user ? (
+              <li>
+                <button
+                  type="button"
+                  className="drawer-auth-btn"
+                  onClick={handleLogout}
+                >
+                  LOGOUT
+                </button>
+              </li>
+            ) : (
+              <li>
+                <NavLink to="/login" onClick={toggleDrawer}>
+                  LOGIN
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

@@ -10,28 +10,38 @@ import Edition from './pages/Edition';
 import Customize from './pages/Customize';
 import Cart from './pages/Cart';
 import Saved from './pages/Saved';
+import Login from './pages/Login';
+import { AuthProvider } from './context/AuthContext';
+import MyPage from './pages/MyPage';
+
 
 function App() {
   return (
     <ShopProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="story" element={<Story />} />
-            <Route path="members" element={<Members />} />
-            <Route path="live" element={<Live />} />
-            <Route path="music" element={<Music />} />
-            <Route path="edition" element={<Edition />} />
-            <Route path="customize" element={<Customize />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="saved" element={<Saved />} />
-          </Route>
-        </Routes>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="story" element={<Story />} />
+              <Route path="members" element={<Members />} />
+              <Route path="live" element={<Live />} />
+              <Route path="music" element={<Music />} />
+              <Route path="edition" element={<Edition />} />
+              <Route path="customize" element={<Customize />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="saved" element={<Saved />} />
+              <Route path="login" element={<Login />} />
+              <Route path="mypage" element={<MyPage />} />
+            </Route>
+          </Routes>
+        </Router>
+      </AuthProvider>
     </ShopProvider>
   );
 }
+
+
 
 export default App;
 
