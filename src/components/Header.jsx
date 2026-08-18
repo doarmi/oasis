@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
-
+import { useShop } from '../context/ShopContext';
 export default function Header({ toggleDrawer }) {
+  const { cart } = useShop();
+
+  const cartCount = cart.length;
+
   return (
     <header className="common-header">
       <button
@@ -45,6 +49,10 @@ export default function Header({ toggleDrawer }) {
           <circle cx="19" cy="20" r="1" />
           <path d="M3 4h2l2.4 10.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6" />
         </svg>
+
+        {cartCount > 0 && (
+          <span className="header-cart-badge">{cartCount}</span>
+        )}
       </Link>
     </header>
   );
