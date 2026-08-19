@@ -1,32 +1,87 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import {
+    onAuthStateChanged,
+    signInWithPopup,
+    signOut,
+} from 'firebase/auth';
+
+import { auth, googleProvider } from '../firebase';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [toast, setToast] = useState('');
+    const [loading, setLoading] = useState(true);
 
-    const login = (provider) => {
-        setUser({
-            provider,
-            email: 'demo@oasis.com',
-            name: 'Oasis User',
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) {
+                setUser({
+                    uid: firebaseUser.uid,
+                    email: firebaseUser.email,
+                    name: firebaseUser.displayName || 'Oasis User',
+                    photoURL: firebaseUser.photoURL,
+                    provider: 'google',
+                });
+            } else {
+                setUser(null);
+            }
+
+            setLoading(false);
         });
 
-        setToast('로그인되었습니다.');
+        return unsubscribe;
+    }, []);
 
-        setTimeout(() => {
-            setToast('');
-        }, 2200);
+    const login = async (provider = 'google') => {
+        try {
+            if (provider !== 'google') {
+                setToast('현재 Google 로그인만 지원합니다.');
+
+                setTimeout(() => {
+                    setToast('');
+                }, 2200);
+
+                return;
+            }
+
+            await signInWithPopup(auth, googleProvider);
+
+            setToast('로그인되었습니다.');
+
+            setTimeout(() => {
+                setToast('');
+            }, 2200);
+        } catch (error) {
+            console.error('Google login error:', error);
+
+            setToast('로그인에 실패했습니다.');
+
+            setTimeout(() => {
+                setToast('');
+            }, 2200);
+        }
     };
 
-    const logout = () => {
-        setUser(null);
-        setToast('로그아웃되었습니다.');
+    const logout = async () => {
+        try {
+            await signOut(auth);
 
-        setTimeout(() => {
-            setToast('');
-        }, 2200);
+            setToast('로그아웃되었습니다.');
+
+            setTimeout(() => {
+                setToast('');
+            }, 2200);
+        } catch (error) {
+            console.error('Logout error:', error);
+
+            setToast('로그아웃에 실패했습니다.');
+
+            setTimeout(() => {
+                setToast('');
+            }, 2200);
+        }
     };
 
     return (
@@ -36,6 +91,7 @@ export function AuthProvider({ children }) {
                 toast,
                 login,
                 logout,
+                loading,
             }}
         >
             {children}
