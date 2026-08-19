@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import noelGallagher from '../assets/noel-gallagher.jpg';
 import liamGallagher from '../assets/liam-gallagher.jpg';
 import gemArcher from '../assets/gem-archer.jpg';
 import andyBell from '../assets/andy-bell.jpg';
 import joeyWaronker from '../assets/joey-waronker.jpg';
-
-
 
 export default function Members() {
   const [selectedMember, setSelectedMember] = useState(null);
@@ -20,8 +19,11 @@ export default function Members() {
     andyBell,
     joeyWaronker,
   ];
+
   return (
     <div className="page-members">
+
+      {/* MEMBERS INTRO */}
       <section className="members-intro">
         <div>
           <h2>MEMBERS</h2>
@@ -33,6 +35,9 @@ export default function Members() {
           Live Forever
         </div>
       </section>
+
+
+      {/* MEMBERS HERO */}
       <section className="members-hero">
         <img
           src={memberSlides[currentMemberSlide]}
@@ -55,47 +60,76 @@ export default function Members() {
             함께 걸어온 시간.
           </p>
 
-          <Link to="/story" className="members-band-btn">
+          <Link
+            to="/story"
+            className="members-band-btn"
+          >
             밴드 소개 보기 <span>›</span>
           </Link>
         </div>
 
+
+        {/* 이전 슬라이드 */}
         <button
           type="button"
           className="members-arrow members-arrow-left"
+          aria-label="이전 멤버 이미지"
           onClick={() =>
             setCurrentMemberSlide((prev) =>
-              prev === 0 ? memberSlides.length - 1 : prev - 1
+              prev === 0
+                ? memberSlides.length - 1
+                : prev - 1
             )
           }
         >
           ‹
         </button>
 
+
+        {/* 다음 슬라이드 */}
         <button
           type="button"
           className="members-arrow members-arrow-right"
+          aria-label="다음 멤버 이미지"
           onClick={() =>
             setCurrentMemberSlide((prev) =>
-              prev === memberSlides.length - 1 ? 0 : prev + 1
+              prev === memberSlides.length - 1
+                ? 0
+                : prev + 1
             )
           }
         >
           ›
         </button>
 
+
+        {/* SLIDE DOTS */}
         <div className="members-dots">
-          <span className="active"></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+          {memberSlides.map((_, index) => (
+            <span
+              key={index}
+              className={
+                currentMemberSlide === index
+                  ? 'active'
+                  : ''
+              }
+              onClick={() =>
+                setCurrentMemberSlide(index)
+              }
+            ></span>
+          ))}
         </div>
       </section>
 
-      <section className="members-current" id="current-members">
+
+      {/* CURRENT MEMBERS */}
+      <section
+        className="members-current reveal"
+        id="current-members"
+      >
         <div className="members-current-header">
           <h2>현재 멤버</h2>
+
           <button
             type="button"
             className="members-profile-more"
@@ -105,7 +139,10 @@ export default function Members() {
           </button>
         </div>
 
+
         <div className="members-current-list">
+
+          {/* LIAM */}
           <article
             className="members-current-card"
             onClick={() =>
@@ -113,17 +150,27 @@ export default function Members() {
                 name: 'Liam Gallagher',
                 role: 'Vocals',
                 image: liamGallagher,
-                description: '오아시스의 상징적인 보컬이자 독보적인 프론트맨.'
+                description:
+                  '오아시스의 상징적인 보컬이자 독보적인 프론트맨.',
               })
             }
           >
-            <img src={liamGallagher} alt="Liam Gallagher" />
+            <img
+              src={liamGallagher}
+              alt="Liam Gallagher"
+            />
+
             <h3>Liam Gallagher</h3>
             <strong>Vocals</strong>
             <p>오아시스의 상징적인 보컬.</p>
-            <span className="members-instagram">◎</span>
+
+            <span className="members-instagram">
+              ◎
+            </span>
           </article>
 
+
+          {/* NOEL */}
           <article
             className="members-current-card"
             onClick={() =>
@@ -131,17 +178,27 @@ export default function Members() {
                 name: 'Noel Gallagher',
                 role: 'Guitar / Vocals',
                 image: noelGallagher,
-                description: '오아시스의 핵심 작곡가이자 기타리스트. 수많은 대표곡을 만들며 밴드의 사운드를 이끌었습니다.'
+                description:
+                  '오아시스의 핵심 작곡가이자 기타리스트. 수많은 대표곡을 만들며 밴드의 사운드를 이끌었습니다.',
               })
             }
           >
-            <img src={noelGallagher} alt="Noel Gallagher" />
+            <img
+              src={noelGallagher}
+              alt="Noel Gallagher"
+            />
+
             <h3>Noel Gallagher</h3>
             <strong>Guitar / Vocals</strong>
             <p>작곡과 기타를 맡아 밴드를 이끕니다.</p>
-            <span className="members-instagram">◎</span>
+
+            <span className="members-instagram">
+              ◎
+            </span>
           </article>
 
+
+          {/* GEM */}
           <article
             className="members-current-card"
             onClick={() =>
@@ -149,17 +206,27 @@ export default function Members() {
                 name: 'Gem Archer',
                 role: 'Guitar',
                 image: gemArcher,
-                description: '섬세하고 안정적인 기타 사운드로 오아시스의 무대를 채우는 기타리스트.'
+                description:
+                  '섬세하고 안정적인 기타 사운드로 오아시스의 무대를 채우는 기타리스트.',
               })
             }
           >
-            <img src={gemArcher} alt="Gem Archer" />
+            <img
+              src={gemArcher}
+              alt="Gem Archer"
+            />
+
             <h3>Gem Archer</h3>
             <strong>Guitar</strong>
             <p>섬세한 기타 사운드로 밴드를 완성합니다.</p>
-            <span className="members-instagram">◎</span>
+
+            <span className="members-instagram">
+              ◎
+            </span>
           </article>
 
+
+          {/* ANDY */}
           <article
             className="members-current-card"
             onClick={() =>
@@ -167,17 +234,27 @@ export default function Members() {
                 name: 'Andy Bell',
                 role: 'Bass',
                 image: andyBell,
-                description: '견고한 베이스 연주로 밴드 사운드의 중심을 잡는 베이시스트.'
+                description:
+                  '견고한 베이스 연주로 밴드 사운드의 중심을 잡는 베이시스트.',
               })
             }
           >
-            <img src={andyBell} alt="Andy Bell" />
+            <img
+              src={andyBell}
+              alt="Andy Bell"
+            />
+
             <h3>Andy Bell</h3>
             <strong>Bass</strong>
             <p>견고한 베이스로 사운드의 중심을 잡습니다.</p>
-            <span className="members-instagram">◎</span>
+
+            <span className="members-instagram">
+              ◎
+            </span>
           </article>
 
+
+          {/* JOEY */}
           <article
             className="members-current-card"
             onClick={() =>
@@ -185,35 +262,56 @@ export default function Members() {
                 name: 'Joey Waronker',
                 role: 'Drums',
                 image: joeyWaronker,
-                description: '파워풀하고 정교한 드러밍으로 오아시스의 라이브 사운드를 이끄는 드러머.'
+                description:
+                  '파워풀하고 정교한 드러밍으로 오아시스의 라이브 사운드를 이끄는 드러머.',
               })
             }
           >
-            <img src={joeyWaronker} alt="Joey Waronker" />
+            <img
+              src={joeyWaronker}
+              alt="Joey Waronker"
+            />
+
             <h3>Joey Waronker</h3>
             <strong>Drums</strong>
             <p>파워풀한 드러밍으로 밴드를 움직입니다.</p>
-            <span className="members-instagram">◎</span>
+
+            <span className="members-instagram">
+              ◎
+            </span>
           </article>
+
         </div>
       </section>
 
 
-      <section className="members-history" id="band-history">
+      {/* BAND HISTORY */}
+      <section
+        className="members-history reveal"
+        id="band-history"
+      >
         <div className="members-history-intro">
           <span>BAND HISTORY</span>
+
           <h2>오아시스 연혁</h2>
+
           <p>
-            1991년부터 지금까지<br />
+            1991년부터 지금까지
+            <br />
             오아시스의 발자취를 확인해보세요.
           </p>
 
-          <Link to="/story" className="members-history-link">
+          <Link
+            to="/story"
+            className="members-history-link"
+          >
             연혁 보기 <span>›</span>
           </Link>
         </div>
 
+
         <div className="members-history-timeline">
+
           <div className="members-history-item">
             <span></span>
             <strong>1991</strong>
@@ -223,13 +321,21 @@ export default function Members() {
           <div className="members-history-item">
             <span></span>
             <strong>1994</strong>
-            <p>데뷔<br />(Definitely Maybe)</p>
+            <p>
+              데뷔
+              <br />
+              (Definitely Maybe)
+            </p>
           </div>
 
           <div className="members-history-item">
             <span></span>
             <strong>1995</strong>
-            <p>(What's the Story)<br />Morning Glory?</p>
+            <p>
+              (What's the Story)
+              <br />
+              Morning Glory?
+            </p>
           </div>
 
           <div className="members-history-item">
@@ -249,30 +355,52 @@ export default function Members() {
             <strong>현재</strong>
             <p>진행 중</p>
           </div>
+
         </div>
       </section>
+
+
+      {/* MEMBER DETAIL MODAL */}
       {selectedMember && (
-        <div className="member-modal-overlay" onClick={() => setSelectedMember(null)}>
-          <div className="member-modal" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="member-modal-overlay"
+          onClick={() => setSelectedMember(null)}
+        >
+          <div
+            className="member-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="member-modal-close"
+              aria-label="프로필 닫기"
               onClick={() => setSelectedMember(null)}
             >
               ×
             </button>
 
-            <img src={selectedMember.image} alt={selectedMember.name} />
+            <img
+              src={selectedMember.image}
+              alt={selectedMember.name}
+            />
 
             <div className="member-modal-content">
               <h2>{selectedMember.name}</h2>
-              <strong>{selectedMember.role}</strong>
-              <p>{selectedMember.description}</p>
+
+              <strong>
+                {selectedMember.role}
+              </strong>
+
+              <p>
+                {selectedMember.description}
+              </p>
             </div>
           </div>
         </div>
-
       )}
+
+
+      {/* ALL PROFILES MODAL */}
       {showAllProfiles && (
         <div
           className="all-profiles-overlay"
@@ -285,52 +413,81 @@ export default function Members() {
             <button
               type="button"
               className="all-profiles-close"
-              onClick={() => setShowAllProfiles(false)}
+              aria-label="전체 프로필 닫기"
+              onClick={() =>
+                setShowAllProfiles(false)
+              }
             >
               ×
             </button>
 
+
             <div className="all-profiles-header">
               <span>OASIS</span>
               <h2>전체 프로필</h2>
-              <p>현재 오아시스 멤버들을 만나보세요.</p>
+
+              <p>
+                현재 오아시스 멤버들을 만나보세요.
+              </p>
             </div>
 
+
             <div className="all-profiles-list">
+
               <div className="all-profile-card">
-                <img src={liamGallagher} alt="Liam Gallagher" />
+                <img
+                  src={liamGallagher}
+                  alt="Liam Gallagher"
+                />
                 <h3>Liam Gallagher</h3>
                 <strong>Vocals</strong>
               </div>
 
+
               <div className="all-profile-card">
-                <img src={noelGallagher} alt="Noel Gallagher" />
+                <img
+                  src={noelGallagher}
+                  alt="Noel Gallagher"
+                />
                 <h3>Noel Gallagher</h3>
                 <strong>Guitar / Vocals</strong>
               </div>
 
+
               <div className="all-profile-card">
-                <img src={gemArcher} alt="Gem Archer" />
+                <img
+                  src={gemArcher}
+                  alt="Gem Archer"
+                />
                 <h3>Gem Archer</h3>
                 <strong>Guitar</strong>
               </div>
 
+
               <div className="all-profile-card">
-                <img src={andyBell} alt="Andy Bell" />
+                <img
+                  src={andyBell}
+                  alt="Andy Bell"
+                />
                 <h3>Andy Bell</h3>
                 <strong>Bass</strong>
               </div>
 
+
               <div className="all-profile-card">
-                <img src={joeyWaronker} alt="Joey Waronker" />
+                <img
+                  src={joeyWaronker}
+                  alt="Joey Waronker"
+                />
                 <h3>Joey Waronker</h3>
                 <strong>Drums</strong>
               </div>
+
             </div>
           </div>
         </div>
       )}
-    </div>
 
+    </div>
   );
 }

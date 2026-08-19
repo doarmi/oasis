@@ -5,7 +5,9 @@
 }
 
 body {
+  margin: 0;
   font-family: sans-serif;
+  background: #eee3d1;
 }
 
 .app-container {
@@ -1430,7 +1432,7 @@ body {
 .home-main-hero {
   position: relative;
   height: 390px;
-  margin: 24px;
+  margin: 10px 24px 24px;
   overflow: hidden;
   border-radius: 18px;
   background: #0b1f3a;
@@ -4644,5 +4646,4929 @@ body {
   .mypage-profile-icon {
     width: 52px;
     height: 52px;
+  }
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background: #f3eadb;
+}
+
+/* =========================================================
+   GLOBAL INTERACTIONS
+   ========================================================= */
+
+/* 클릭 가능한 요소의 기본 전환 */
+button,
+a {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* 버튼 계열 */
+button:not(:disabled):hover,
+a[class*="btn"]:hover {
+  transform: translateY(-2px);
+}
+
+button:not(:disabled):active,
+a[class*="btn"]:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 클릭 가능한 요소임을 조금 더 명확하게 */
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+/* HOME - 새로운 소식 카드 */
+.home-news-card {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.home-news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+}
+
+.home-news-image {
+  overflow: hidden;
+}
+
+.home-news-image img {
+  transition: transform 0.4s ease;
+}
+
+.home-news-card:hover .home-news-image img {
+  transform: scale(1.045);
+}
+
+/* HOME - 주요 기능 카드 */
+.home-feature-card {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.home-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.12);
+}
+
+/* HOME - 주요 기능 아이콘 */
+.home-feature-icon {
+  transition: transform 0.28s ease;
+}
+
+.home-feature-card:hover .home-feature-icon {
+  transform: scale(1.1);
+}
+
+/* HERO 버튼 */
+.home-story-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* 한정판 Vinyl 이미지 */
+.home-vinyl-visual img {
+  transition: transform 0.45s ease;
+}
+
+.home-vinyl-banner:hover .home-vinyl-visual img {
+  transform: rotate(3deg) scale(1.04);
+}
+
+/* 헤더 아이콘 */
+.common-header button {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.common-header button:hover {
+  transform: scale(1.08);
+}
+
+/* 키보드 사용자도 현재 위치를 확인할 수 있도록 */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #0b1f3a;
+  outline-offset: 3px;
+}
+
+/* 모션 최소화를 사용하는 기기에서는 과한 움직임 제거 */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* =========================================================
+   MEMBERS INTERACTIONS
+   ========================================================= */
+
+/* 현재 멤버 카드 */
+.members-current-card {
+  cursor: pointer;
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.members-current-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.15);
+}
+
+.members-current-card img {
+  transition: transform 0.4s ease;
+}
+
+.members-current-card:hover img {
+  transform: scale(1.045);
+}
+
+/* THE BAND 버튼 */
+.members-band-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Hero 좌우 화살표 */
+.members-arrow {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.members-arrow:hover {
+  transform: scale(1.1);
+}
+
+/* 전체 프로필 보기 */
+.members-profile-more:hover {
+  transform: translateX(3px);
+}
+
+/* BAND HISTORY */
+.members-history-item {
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.members-history-item:hover {
+  transform: translateY(-4px);
+}
+
+/* 연혁 보기 */
+.members-history-link:hover {
+  transform: translateX(4px);
+}
+
+/* 개별 멤버 모달 */
+.member-modal {
+  animation: oasisModalIn 0.25s ease;
+}
+
+/* 전체 프로필 모달 */
+.all-profiles-modal {
+  animation: oasisModalIn 0.25s ease;
+}
+
+/* 전체 프로필 카드 */
+.all-profile-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.all-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(11, 31, 58, 0.12);
+}
+
+.all-profile-card img {
+  transition: transform 0.35s ease;
+}
+
+.all-profile-card:hover img {
+  transform: scale(1.04);
+}
+
+/* 팝업 등장 애니메이션 */
+@keyframes oasisModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   STORY INTERACTIONS
+   ========================================================= */
+
+/* HERO 버튼 */
+.story-history-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* HERO 좌우 화살표 */
+.story-arrow {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.story-arrow:hover {
+  transform: scale(1.1);
+}
+
+/* HERO 도트 */
+.story-dots span {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.story-dots span:hover {
+  transform: scale(1.25);
+}
+
+
+/* 연대기 아이템 */
+.story-timeline-item {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.story-timeline-item:hover {
+  transform: translateY(-4px);
+}
+
+/* 타임라인 점 */
+.story-timeline-dot {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.story-timeline-item:hover .story-timeline-dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 5px rgba(11, 31, 58, 0.08);
+}
+
+/* 전체 보기 */
+.story-timeline-more:hover {
+  transform: translateX(4px);
+}
+
+
+/* 전체 연대기 펼침 영역 */
+.story-timeline-detail {
+  animation: storyDetailIn 0.3s ease;
+}
+
+.story-timeline-detail-item {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.story-timeline-detail-item:hover {
+  transform: translateX(5px);
+}
+
+@keyframes storyDetailIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* 주요 이야기 카드 */
+.story-highlight-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.story-highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+}
+
+/* 카드 이미지 확대 */
+.story-highlight-image {
+  overflow: hidden;
+}
+
+.story-highlight-image img {
+  transition: transform 0.45s ease;
+}
+
+.story-highlight-card:hover .story-highlight-image img {
+  transform: scale(1.05);
+}
+
+
+/* 스크랩북 사진 */
+.story-scrapbook-photo {
+  overflow: hidden;
+}
+
+.story-scrapbook-photo img {
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.story-scrapbook-photo:hover img {
+  transform: scale(1.035) rotate(0.8deg);
+}
+
+
+/* 인용문 */
+.story-quote {
+  transition: transform 0.3s ease;
+}
+
+.story-quote:hover {
+  transform: translateY(-4px);
+}
+
+/* =========================================================
+   EDITION INTERACTIONS
+   ========================================================= */
+
+/* 상품 카드 */
+.product-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+}
+
+/* 상품 이미지 */
+.product-image {
+  overflow: hidden;
+}
+
+.product-image img {
+  transition: transform 0.45s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.045);
+}
+
+/* 선택 버튼 */
+.btn-primary {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(11, 31, 58, 0.18);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 장바구니 / 저장 버튼 */
+.btn-secondary {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 상단 저장 / 장바구니 아이콘 */
+.btn-icon {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.btn-icon:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 14px rgba(11, 31, 58, 0.12);
+}
+
+/* =========================================================
+   CUSTOMIZE INTERACTIONS
+   ========================================================= */
+
+/* 상품 비주얼 */
+.customize-visual {
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.customize-visual:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.13);
+}
+
+.customize-visual img {
+  transition: transform 0.45s ease;
+}
+
+.customize-visual:hover img {
+  transform: scale(1.04);
+}
+
+/* 옵션 버튼 */
+.option-buttons button {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.option-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(11, 31, 58, 0.1);
+}
+
+/* 선택된 옵션은 조금 더 또렷하게 */
+.option-buttons button.active {
+  box-shadow: 0 6px 16px rgba(11, 31, 58, 0.16);
+}
+
+.option-buttons button.active:hover {
+  transform: translateY(-2px) scale(1.015);
+}
+
+/* 수량 셀렉트 */
+.qty-select {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.qty-select:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(11, 31, 58, 0.08);
+}
+
+.qty-select:focus {
+  outline: none;
+  border-color: #0b1f3a;
+  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.1);
+}
+
+/* 주문 요약 */
+.customize-summary {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.customize-summary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(11, 31, 58, 0.1);
+}
+
+/* 총액 */
+.customize-summary strong {
+  transition: transform 0.2s ease;
+}
+
+.customize-summary:hover strong {
+  transform: scale(1.04);
+}
+
+/* 장바구니 / 저장 영역 */
+.action-buttons {
+  transition: transform 0.2s ease;
+}
+
+.action-buttons .btn-secondary:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* =========================================================
+   CART INTERACTIONS
+   ========================================================= */
+
+/* 장바구니 상품 */
+.cart-item {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.11);
+}
+
+/* 상품 이미지 */
+.item-image {
+  overflow: hidden;
+}
+
+.item-image img {
+  transition: transform 0.4s ease;
+}
+
+.cart-item:hover .item-image img {
+  transform: scale(1.045);
+}
+
+/* 수량 선택 */
+.item-actions select {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.item-actions select:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(11, 31, 58, 0.08);
+}
+
+.item-actions select:focus {
+  outline: none;
+  border-color: #0b1f3a;
+  box-shadow: 0 0 0 3px rgba(11, 31, 58, 0.1);
+}
+
+/* 삭제 버튼 */
+.btn-text {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.btn-text:hover {
+  transform: translateX(2px);
+  opacity: 0.7;
+}
+
+/* 주문 요약 */
+.cart-summary {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.cart-summary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.1);
+}
+
+/* 총 금액 */
+.summary-line.total {
+  transition: transform 0.2s ease;
+}
+
+.cart-summary:hover .summary-line.total {
+  transform: scale(1.015);
+}
+
+/* 결제 안내 모달 - 현재 inline style 구조에서도 적용 가능 */
+.page-cart>div[style*="position: fixed"]>div {
+  animation: oasisCheckoutModalIn 0.25s ease;
+}
+
+@keyframes oasisCheckoutModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   SAVED INTERACTIONS
+   ========================================================= */
+
+/* 저장 상품 카드 */
+.saved-item {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    background-color 0.28s ease;
+}
+
+.saved-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.11);
+}
+
+/* 이미지 */
+.saved-item .item-image {
+  overflow: hidden;
+}
+
+.saved-item .item-image img {
+  transition: transform 0.4s ease;
+}
+
+.saved-item:hover .item-image img {
+  transform: scale(1.045);
+}
+
+/* 상세 보기 / 장바구니 이동 */
+.btn-outline {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(11, 31, 58, 0.1);
+}
+
+.btn-outline:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 저장 해제 X */
+.btn-close {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-close:hover {
+  transform: rotate(90deg) scale(1.08);
+}
+
+.btn-close:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* 작은 액션 버튼 영역 */
+.action-buttons-sm {
+  transition: transform 0.2s ease;
+}
+
+.saved-item:hover .action-buttons-sm {
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   LIVE INTERACTIONS
+   ========================================================= */
+
+/* HERO 버튼 */
+.live-main-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* 투어 포스터 */
+.live-tour-poster {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.live-tour-poster:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+}
+
+.live-tour-poster img {
+  transition: transform 0.45s ease;
+}
+
+.live-tour-poster:hover img {
+  transform: scale(1.04);
+}
+
+/* 전체 일정 보기 */
+.live-all-btn:hover {
+  transform: translateX(4px);
+}
+
+/* 투어 일정 행 */
+.live-tour-row {
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.live-tour-row:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.08);
+}
+
+/* 날짜 강조 */
+.live-tour-date strong {
+  transition: transform 0.25s ease;
+}
+
+.live-tour-row:hover .live-tour-date strong {
+  transform: scale(1.06);
+}
+
+/* 예매 버튼 */
+.live-book-btn {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.live-book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(11, 31, 58, 0.16);
+}
+
+.live-book-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* SOLD OUT */
+.live-sold-out {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.live-tour-row:hover .live-sold-out {
+  transform: scale(1.03);
+}
+
+/* LIVE NEWS 더보기 */
+.live-news-more:hover {
+  transform: translateX(4px);
+}
+
+/* LIVE NEWS 카드 */
+.live-news-card {
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.live-news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+}
+
+/* 뉴스 이미지 */
+.live-news-image {
+  overflow: hidden;
+}
+
+.live-news-image img {
+  transition: transform 0.45s ease;
+}
+
+.live-news-card:hover .live-news-image img {
+  transform: scale(1.05);
+}
+
+/* 뉴스 배지 */
+.live-news-image span {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.live-news-card:hover .live-news-image span {
+  transform: translateY(-2px);
+}
+
+/* 안내 문구 */
+.live-tour-notice {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.live-tour-notice:hover {
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   LOGIN INTERACTIONS
+   ========================================================= */
+
+/* 로그인 박스 */
+.login-container {
+  animation: loginContainerIn 0.45s ease;
+}
+
+@keyframes loginContainerIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 소셜 로그인 버튼 */
+.login-social-btn {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    filter 0.22s ease;
+}
+
+.login-social-btn:not(:disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(11, 31, 58, 0.12);
+}
+
+.login-social-btn:not(:disabled):active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* 구글 아이콘 */
+.login-social-icon {
+  transition: transform 0.25s ease;
+}
+
+.login-social-btn:hover .login-social-icon {
+  transform: scale(1.1);
+}
+
+/* Google 버튼은 조금 더 강조 */
+.login-google:hover {
+  box-shadow: 0 10px 24px rgba(66, 133, 244, 0.14);
+}
+
+/* Kakao / Apple */
+.login-kakao:hover,
+.login-apple:hover {
+  filter: brightness(0.97);
+}
+
+/* 로그인 중 버튼 */
+.login-social-btn:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+/* 로그인 로딩 화면 등장 */
+.login-loading {
+  animation: loginLoadingIn 0.25s ease;
+}
+
+@keyframes loginLoadingIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* LP 그림자 살짝 추가 */
+.login-vinyl {
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2));
+}
+
+
+/* =========================================================
+   MY PAGE INTERACTIONS
+   ========================================================= */
+
+/* 마이페이지 전체 등장 */
+.mypage-container {
+  animation: mypageIn 0.4s ease;
+}
+
+@keyframes mypageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 프로필 영역 */
+.mypage-profile {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.mypage-profile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.11);
+}
+
+/* 프로필 아이콘 */
+.mypage-profile-icon {
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.mypage-profile:hover .mypage-profile-icon {
+  transform: scale(1.06);
+}
+
+/* 마이페이지 메뉴 */
+.mypage-menu-item {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.mypage-menu-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 14px rgba(11, 31, 58, 0.07);
+}
+
+/* 우측 화살표 */
+.mypage-menu-item>span:last-child {
+  transition: transform 0.22s ease;
+}
+
+.mypage-menu-item:hover>span:last-child {
+  transform: translateX(4px);
+}
+
+/* 로그아웃 */
+.mypage-logout-btn {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.mypage-logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.13);
+}
+
+.mypage-logout-btn:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* =========================================================
+   HEADER / ACCOUNT / DRAWER / BOTTOM NAV INTERACTIONS
+   ========================================================= */
+
+/* HEADER */
+.common-header {
+  transition:
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.common-header:hover {
+  box-shadow: 0 6px 18px rgba(11, 31, 58, 0.06);
+}
+
+/* 로고 */
+.header-logo a {
+  display: inline-block;
+  transition:
+    transform 0.22s ease,
+    letter-spacing 0.22s ease;
+}
+
+.header-logo a:hover {
+  transform: translateY(-1px);
+  letter-spacing: 1px;
+}
+
+/* 햄버거 */
+.hamburger-btn {
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.hamburger-btn:hover {
+  transform: scale(1.08);
+}
+
+/* 로그인 / 계정 버튼 */
+.header-user-btn {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.header-user-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 14px rgba(11, 31, 58, 0.1);
+}
+
+/* 로그인 상태 점 */
+.header-user-status {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.header-user-btn.logged-in:hover .header-user-status {
+  transform: scale(1.2);
+}
+
+/* 장바구니 */
+.header-cart {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.header-cart:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* 장바구니 배지 */
+.header-cart-badge {
+  transition: transform 0.22s ease;
+}
+
+.header-cart:hover .header-cart-badge {
+  transform: scale(1.12);
+}
+
+
+/* =========================================================
+   ACCOUNT DROPDOWN
+   ========================================================= */
+
+.header-account-menu {
+  animation: accountMenuIn 0.22s ease;
+  transform-origin: top right;
+}
+
+@keyframes accountMenuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header-account-item {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.header-account-item:hover {
+  transform: translateX(3px);
+}
+
+.account-status-dot {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.header-account-status:hover .account-status-dot {
+  transform: scale(1.15);
+}
+
+
+/* =========================================================
+   DRAWER
+   ========================================================= */
+
+/* 오버레이 */
+.drawer-overlay {
+  animation: drawerOverlayIn 0.22s ease;
+}
+
+@keyframes drawerOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* 닫기 X */
+.drawer-close {
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.drawer-close:hover {
+  transform: rotate(90deg) scale(1.08);
+}
+
+/* Drawer 메뉴 */
+.drawer nav a,
+.drawer-auth-btn {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    color 0.22s ease,
+    padding-left 0.22s ease;
+}
+
+.drawer nav a:hover,
+.drawer-auth-btn:hover {
+  transform: translateX(6px);
+}
+
+/* 현재 페이지 NavLink */
+.drawer nav a.active {
+  transform: translateX(4px);
+}
+
+/* OASIS 로고 */
+.drawer-logo {
+  display: inline-block;
+  transition:
+    transform 0.22s ease,
+    letter-spacing 0.22s ease;
+}
+
+.drawer-logo:hover {
+  transform: translateX(2px);
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   BOTTOM NAV
+   ========================================================= */
+
+.nav-item {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    color 0.22s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-3px);
+}
+
+/* 아이콘 */
+.nav-icon {
+  display: inline-block;
+  transition:
+    transform 0.22s ease,
+    filter 0.22s ease;
+}
+
+.nav-item:hover .nav-icon {
+  transform: scale(1.12);
+}
+
+/* 선택된 메뉴 */
+.nav-item.active .nav-icon {
+  transform: scale(1.08);
+}
+
+/* 라벨 */
+.nav-label {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav-item:hover .nav-label {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PAGE ENTER / HERO MOTION
+   ========================================================= */
+
+/* 페이지 진입 */
+.page-home,
+.page-story,
+.page-members,
+.page-live,
+.page-edition,
+.page-customize,
+.page-cart,
+.page-saved,
+.page-login,
+.page-mypage {
+  animation: pageFadeIn 0.45s ease;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* HERO 이미지 등장 */
+.home-main-hero-img,
+.story-hero-img,
+.members-hero-img,
+.live-main-hero-img {
+  animation: heroReveal 1.05s ease-out;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0.82;
+    transform: scale(1.035);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* HERO 텍스트 공통 */
+.home-main-hero-content h1,
+.story-hero-content h1,
+.members-hero-content h1,
+.live-main-hero-content h1 {
+  animation: heroTextIn 0.55s ease 0.08s both;
+}
+
+.home-main-hero-content p,
+.story-hero-content p,
+.members-hero-content p,
+.live-main-hero-content p {
+  animation: heroTextIn 0.55s ease 0.18s both;
+}
+
+.home-story-btn,
+.story-history-btn,
+.members-band-btn,
+.live-main-btn {
+  animation: heroTextIn 0.55s ease 0.28s both;
+}
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   FUNCTIONAL MICRO INTERACTIONS
+   ========================================================= */
+
+/* 장바구니 숫자 배지 */
+.header-cart-badge {
+  animation: cartBadgePop 0.32s ease;
+}
+
+@keyframes cartBadgePop {
+  0% {
+    transform: scale(0.7);
+  }
+
+  60% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* 클릭 가능한 버튼에 눌림감 강화 */
+.btn-primary:active,
+.btn-secondary:active,
+.btn-outline:active,
+.live-book-btn:active,
+.login-social-btn:active,
+.mypage-logout-btn:active {
+  transform: scale(0.97);
+}
+
+
+/* 저장된 버튼 상태 */
+.btn-secondary[style*="background"] {
+  animation: savedButtonPop 0.28s ease;
+}
+
+@keyframes savedButtonPop {
+  0% {
+    transform: scale(0.94);
+  }
+
+  65% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* 선택된 커스터마이즈 옵션 */
+.option-buttons button.active {
+  animation: optionSelected 0.25s ease;
+}
+
+@keyframes optionSelected {
+  0% {
+    transform: scale(0.97);
+  }
+
+  60% {
+    transform: scale(1.025);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.header-cart-badge.pulse {
+  animation: cartBadgePop 0.32s ease;
+}
+
+@keyframes cartBadgePop {
+  0% {
+    transform: scale(0.7);
+  }
+
+  60% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* SAVED INTERACTION */
+
+.saved-item {
+  animation: savedItemIn 0.45s ease both;
+}
+
+.saved-item:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.saved-item:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.saved-item:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+@keyframes savedItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.saved-item .btn-close {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.saved-item .btn-close:hover {
+  transform: rotate(90deg) scale(1.08);
+}
+
+.saved-item .item-image img {
+  transition: transform 0.4s ease;
+}
+
+.saved-item:hover .item-image img {
+  transform: scale(1.04);
+}
+
+/* CUSTOMIZE INTERACTION */
+
+.option-buttons button {
+  transition:
+    transform 0.18s ease,
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.option-buttons button:hover {
+  transform: translateY(-2px);
+}
+
+.option-buttons button:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.option-buttons button.active {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(11, 31, 58, 0.14);
+}
+
+.customize-visual img {
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+.customize-visual:hover img {
+  transform: scale(1.025) rotate(-0.5deg);
+}
+
+.customize-summary {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.customize-summary:hover {
+  transform: translateY(-3px);
+}
+
+.qty-select {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.qty-select:focus {
+  transform: scale(1.02);
+}
+
+/* =========================================================
+   SCROLL REVEAL BASE
+   ========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   MODAL INTERACTIONS
+   ========================================================= */
+
+/* 멤버 개별 프로필 배경 */
+.member-modal-overlay {
+  animation: modalOverlayIn 0.22s ease;
+}
+
+/* 멤버 개별 프로필 창 */
+.member-modal {
+  animation: memberModalIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+/* 전체 프로필 배경 */
+.all-profiles-overlay {
+  animation: modalOverlayIn 0.22s ease;
+}
+
+/* 전체 프로필 창 */
+.all-profiles-modal {
+  animation: memberModalIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+
+/* 배경 Fade */
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* 모달 등장 */
+@keyframes memberModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* 닫기 X */
+.member-modal-close,
+.all-profiles-close {
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.member-modal-close:hover,
+.all-profiles-close:hover {
+  transform: rotate(90deg) scale(1.08);
+}
+
+.member-modal-close:active,
+.all-profiles-close:active {
+  transform: rotate(90deg) scale(0.94);
+}
+
+
+/* 개별 프로필 이미지 */
+.member-modal img {
+  transition: transform 0.4s ease;
+}
+
+.member-modal:hover img {
+  transform: scale(1.015);
+}
+
+
+/* 전체 프로필 카드 */
+.all-profile-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.all-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(11, 31, 58, 0.1);
+}
+
+
+/* 전체 프로필 이미지 */
+.all-profile-card img {
+  transition: transform 0.35s ease;
+}
+
+.all-profile-card:hover img {
+  transform: scale(1.035);
+}
+
+/* =========================================================
+   MOBILE / TOUCH INTERACTION
+   ========================================================= */
+
+/* 모바일에서는 hover 때문에 요소가 이상하게 남는 현상 방지 */
+@media (hover: none) {
+
+  .home-news-card:hover,
+  .home-feature-card:hover,
+  .members-current-card:hover,
+  .live-news-card:hover,
+  .product-card:hover,
+  .saved-item:hover,
+  .mypage-profile:hover,
+  .live-tour-poster:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* 대신 터치하는 순간 살짝 눌리는 효과 */
+  .home-news-card:active,
+  .home-feature-card:active,
+  .members-current-card:active,
+  .live-news-card:active,
+  .product-card:active,
+  .saved-item:active {
+    transform: scale(0.985);
+  }
+
+  /* 버튼 터치 */
+  button:active,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .btn-outline:active,
+  .nav-item:active {
+    transform: scale(0.96);
+  }
+
+  /* 하단 네비 */
+  .nav-item:active .nav-icon {
+    transform: scale(0.9);
+  }
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+   ========================================================= */
+
+/* 키보드 사용 시 현재 선택 위치 표시 */
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+/* 기기에서 '동작 줄이기'를 사용하는 사람 대응 */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   DESKTOP LANDING SHELL
+   ========================================================= */
+
+.oasis-desktop-shell {
+  min-height: 100vh;
+  background: #0b1f3a;
+}
+
+
+/* PC 왼쪽 브랜드 영역 */
+.oasis-desktop-intro {
+  display: none;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  body {
+    background: #0b1f3a;
+  }
+
+  .oasis-desktop-shell {
+    display: grid;
+    grid-template-columns: minmax(420px, 0.8fr) minmax(760px, 1.2fr);
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     LEFT BRAND LANDING
+     ========================= */
+
+  .oasis-desktop-intro {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    padding: 72px 56px;
+    overflow: hidden;
+
+    color: #f3eadb;
+
+    background:
+      radial-gradient(circle at 80% 20%,
+        rgba(243, 234, 219, 0.08),
+        transparent 34%),
+      linear-gradient(145deg,
+        #07182d 0%,
+        #0b1f3a 55%,
+        #102a4d 100%);
+  }
+
+
+  /* 배경 장식 */
+  .oasis-desktop-intro::before {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+
+    top: -140px;
+    right: -150px;
+
+    border: 1px solid rgba(243, 234, 219, 0.12);
+    border-radius: 50%;
+  }
+
+  .oasis-desktop-intro::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+
+    bottom: 80px;
+    right: -100px;
+
+    border: 1px solid rgba(243, 234, 219, 0.1);
+    border-radius: 50%;
+  }
+
+
+  .oasis-desktop-intro-inner {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 600px;
+
+    margin: auto;
+
+    animation: oasisDesktopIntroIn 0.65s ease;
+  }
+
+
+  @keyframes oasisDesktopIntroIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+  .oasis-desktop-kicker {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    opacity: 0.65;
+  }
+
+
+  .oasis-desktop-intro h1 {
+    margin: 0;
+
+    font-size: clamp(68px, 6vw, 112px);
+    line-height: 0.82;
+    letter-spacing: -5px;
+    font-weight: 900;
+  }
+
+
+  .oasis-desktop-description {
+    margin: 34px 0 30px;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: rgba(243, 234, 219, 0.72);
+  }
+
+
+  /* =========================
+     LEFT LINKS
+     ========================= */
+
+  .oasis-desktop-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    margin-bottom: 34px;
+  }
+
+
+  .oasis-desktop-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 58px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(243, 234, 219, 0.2);
+
+    color: #f3eadb;
+    text-decoration: none;
+
+    background: rgba(243, 234, 219, 0.035);
+
+    transition:
+      transform 0.22s ease,
+      background-color 0.22s ease,
+      border-color 0.22s ease;
+  }
+
+
+  .oasis-desktop-links a:hover {
+    transform: translateY(-3px);
+
+    background: rgba(243, 234, 219, 0.09);
+
+    border-color: rgba(243, 234, 219, 0.45);
+  }
+
+
+  .oasis-desktop-links a strong {
+    transition: transform 0.22s ease;
+  }
+
+
+  .oasis-desktop-links a:hover strong {
+    transform: translateX(4px);
+  }
+
+
+  /* =========================
+     ALBUMS
+     ========================= */
+
+  .oasis-desktop-albums {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    margin-top: 20px;
+  }
+
+
+  .oasis-desktop-album {
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 1;
+
+    border: 1px solid rgba(243, 234, 219, 0.15);
+
+    background: #07182d;
+
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+
+
+  .oasis-desktop-album:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+  }
+
+
+  .oasis-desktop-album img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+      transform 0.4s ease,
+      opacity 0.4s ease;
+  }
+
+
+  .oasis-desktop-album:hover img {
+    transform: scale(1.05);
+    opacity: 0.82;
+  }
+
+
+  .oasis-desktop-album span {
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+
+    padding: 4px 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    color: #f3eadb;
+
+    background: rgba(11, 31, 58, 0.78);
+  }
+
+
+  .oasis-desktop-footer {
+    margin-top: 22px;
+    margin-bottom: 0;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+
+    opacity: 0.35;
+  }
+
+
+  /* =========================================================
+     RIGHT OASIS APP
+     ========================================================= */
+
+  .oasis-desktop-shell>.app-container {
+    position: relative;
+
+    width: 100%;
+    max-width: none;
+
+    height: 100vh;
+    min-height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #f3eadb;
+
+    border-left: 1px solid rgba(243, 234, 219, 0.15);
+
+    box-shadow: -24px 0 60px rgba(0, 0, 0, 0.16);
+  }
+
+
+  /* 기존 PC max-width 제한 무효화 */
+  .oasis-desktop-shell .common-header,
+  .oasis-desktop-shell .content-area,
+  .oasis-desktop-shell .bottom-nav {
+    width: 100%;
+    max-width: none;
+  }
+
+
+  .oasis-desktop-shell .common-header {
+    margin: 0;
+  }
+
+
+  .oasis-desktop-shell .content-area {
+    margin: 0;
+
+    padding-bottom: 110px;
+  }
+
+
+  /* 하단 네비는 오른쪽 앱 안에만 */
+  .oasis-desktop-shell .bottom-nav {
+    left: auto;
+    right: 0;
+
+    margin: 0;
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .oasis-desktop-shell {
+    grid-template-columns:
+      minmax(540px, 0.9fr) minmax(860px, 1.1fr);
+  }
+
+
+  .oasis-desktop-intro {
+    padding: 80px 72px;
+  }
+
+
+  .oasis-desktop-intro-inner {
+    max-width: 650px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+  .oasis-desktop-shell {
+    display: block;
+
+    min-height: 100vh;
+
+    background: #f3eadb;
+  }
+
+
+  .oasis-desktop-intro {
+    display: none;
+  }
+
+
+  .oasis-desktop-shell>.app-container {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f3eadb;
+  }
+}
+
+@media (min-width: 1200px) {
+  .oasis-desktop-shell .bottom-nav {
+    left: auto !important;
+    right: 0 !important;
+
+    width: 55% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+  }
+}
+
+/* =========================================================
+   IPHONE MOCKUP - DESKTOP
+   ========================================================= */
+
+.oasis-phone-stage {
+  min-height: 100vh;
+}
+
+
+/* 모바일에서는 프레임 없이 원래 앱 */
+.oasis-phone {
+  width: 100%;
+}
+
+.oasis-phone-island,
+.oasis-phone-homebar {
+  display: none;
+}
+
+
+/* =========================================================
+   DESKTOP PHONE MOCKUP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 전체 PC 레이아웃 */
+  .oasis-desktop-shell {
+    display: grid;
+
+    grid-template-columns:
+      minmax(520px, 1fr) minmax(600px, 1fr);
+
+    min-height: 100vh;
+
+    background: #0b1f3a;
+  }
+
+
+  /* 오른쪽 목업 배치 영역 */
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 100vh;
+
+    padding: 34px 36px;
+
+    background:
+      radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(238, 227, 209, 0.95) 55%,
+        #e2d2bb 100%);
+  }
+
+
+  /* 아이폰 본체 */
+  .oasis-phone {
+    position: relative;
+
+    width: min(720px, 100%);
+    height: calc(100vh - 68px);
+    max-height: 900px;
+    min-height: 680px;
+
+    padding: 12px;
+
+    border: 4px solid #111820;
+    border-radius: 46px;
+
+    background: #111820;
+
+    box-shadow:
+      0 35px 80px rgba(0, 0, 0, 0.26),
+      0 10px 30px rgba(0, 0, 0, 0.16);
+
+    overflow: hidden;
+
+    animation: oasisPhoneIn 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+
+  @keyframes oasisPhoneIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+
+  /* 실제 화면 */
+  .oasis-phone>.app-container {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    background: #f3eadb;
+
+    /*
+      중요:
+      fixed 요소인 Drawer/Overlay가
+      아이폰 프레임 밖으로 탈출하지 않게 함
+    */
+    transform: translateZ(0);
+  }
+
+
+  /* 앱 Header */
+  .oasis-phone .common-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    background: rgba(243, 234, 219, 0.97);
+
+    backdrop-filter: blur(10px);
+  }
+
+
+  /* 실제 페이지 스크롤 영역 */
+  .oasis-phone .content-area {
+    width: 100%;
+    max-width: none;
+
+    height: calc(100% - 78px);
+
+    margin: 0;
+
+    padding-bottom: 100px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+  }
+
+
+  /* 하단 내비는 아이폰 내부 고정 */
+  .oasis-phone .bottom-nav {
+    position: absolute;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border-radius: 0 0 30px 30px;
+  }
+
+
+  /* Drawer도 폰 내부에서 열리게 */
+  .oasis-phone .drawer-overlay {
+    position: fixed;
+    inset: 0;
+
+    border-radius: 32px;
+  }
+
+
+  .oasis-phone .drawer {
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+
+    max-width: 78%;
+
+    border-radius: 32px 0 0 32px;
+  }
+
+
+  /* Dynamic Island 느낌 */
+  .oasis-phone-island {
+    display: block;
+
+    position: absolute;
+
+    top: 18px;
+    left: 50%;
+
+    z-index: 100;
+
+    width: 105px;
+    height: 28px;
+
+    transform: translateX(-50%);
+
+    border-radius: 999px;
+
+    background: #07090c;
+
+    pointer-events: none;
+  }
+
+
+  /* 하단 홈 바 */
+  .oasis-phone-homebar {
+    display: block;
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 17px;
+
+    z-index: 100;
+
+    width: 110px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    pointer-events: none;
+  }
+
+
+  /* 폰 hover - 아주 약하게 */
+  .oasis-phone {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+
+  .oasis-phone:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+      0 42px 90px rgba(0, 0, 0, 0.3),
+      0 12px 36px rgba(0, 0, 0, 0.18);
+  }
+}
+
+
+/* =========================================================
+   VERY LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+  .oasis-desktop-shell {
+    grid-template-columns:
+      minmax(620px, 0.95fr) minmax(760px, 1.05fr);
+  }
+
+  .oasis-phone {
+    width: min(760px, 92%);
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+  .oasis-phone-stage {
+    display: block;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 0;
+
+    background: #f3eadb;
+  }
+
+  .oasis-phone {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+  }
+
+  .oasis-phone>.app-container {
+    min-height: 100vh;
+
+    border-radius: 0;
+  }
+
+  .oasis-phone-island,
+  .oasis-phone-homebar {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .oasis-phone {
+    width: min(500px, 90%);
+    height: min(820px, calc(100vh - 70px));
+    min-height: 680px;
+    max-height: 820px;
+
+    border-radius: 48px;
+  }
+
+  .oasis-phone>.app-container {
+    border-radius: 36px;
+  }
+
+  .oasis-phone-stage {
+    padding: 30px 50px;
+  }
+}
+
+/* =========================================================
+   OASIS PHONE MOCKUP - FINAL SIZE
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .oasis-phone-stage {
+    min-height: 100vh;
+    padding: 20px 30px;
+  }
+
+  .oasis-phone {
+    position: relative;
+
+    width: min(500px, 92%);
+    height: min(820px, calc(100vh - 55px));
+
+    min-height: 740px;
+    max-height: 820px;
+
+    padding: 12px;
+
+    border: 4px solid #111820;
+    border-radius: 50px;
+
+    background: #111820;
+
+    box-shadow:
+      0 35px 80px rgba(0, 0, 0, 0.26),
+      0 10px 30px rgba(0, 0, 0, 0.16);
+
+    overflow: hidden;
+
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+}
+
+/* =========================================================
+   OASIS APP PREVIEW - CLEAN PORTFOLIO STYLE
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .oasis-desktop-shell {
+    grid-template-columns: 48% 52%;
+  }
+
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 40px 60px;
+
+    background: #f3eadb;
+  }
+
+  /* 이제 "폰"이 아니라 세로형 앱 프리뷰 카드 */
+  .oasis-phone {
+    position: relative;
+
+    width: 480px;
+    height: 740px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 24px;
+
+    background: #f3eadb;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 24px 60px rgba(11, 31, 58, 0.14),
+      0 8px 20px rgba(11, 31, 58, 0.08);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .oasis-phone:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+      0 30px 70px rgba(11, 31, 58, 0.18),
+      0 10px 24px rgba(11, 31, 58, 0.1);
+  }
+
+  .oasis-phone>.app-container {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background: #f3eadb;
+  }
+
+  .oasis-phone .common-header {
+    position: sticky;
+    top: 0;
+
+    z-index: 30;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    background: rgba(243, 234, 219, 0.97);
+  }
+
+  .oasis-phone .content-area {
+    width: 100%;
+    max-width: none;
+
+    height: calc(100% - 70px);
+
+    margin: 0;
+
+    padding-bottom: 90px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .oasis-phone .bottom-nav {
+    position: absolute;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border-radius: 0 0 24px 24px;
+  }
+
+  /* 아이폰 장식 제거 */
+  .oasis-phone-island,
+  .oasis-phone-homebar {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   OASIS DESKTOP MOCKUP - PORTFOLIO FINAL
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 왼쪽 / 오른쪽 비율 */
+  .oasis-desktop-shell {
+    grid-template-columns: 48% 52%;
+  }
+
+  /* 오른쪽 목업 배치 */
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 32px 48px;
+
+    background: #eee3d1;
+  }
+
+  /* 폰 본체 - 조금 더 세로로 길고 슬림하게 */
+  .oasis-phone {
+    position: relative;
+
+    width: min(460px, 88%);
+    height: min(800px, calc(100vh - 70px));
+
+    min-height: 700px;
+    max-height: 800px;
+
+    padding: 10px;
+
+    border: 4px solid #111820;
+    border-radius: 42px;
+
+    background: #111820;
+
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.22),
+      0 8px 24px rgba(0, 0, 0, 0.14);
+
+    overflow: hidden;
+  }
+
+  /* 실제 앱 화면 */
+  .oasis-phone>.app-container {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border-radius: 31px;
+    background: #f3eadb;
+  }
+
+  /* 상단 헤더 */
+  .oasis-phone .common-header {
+    min-height: 68px;
+    padding: 10px 18px;
+  }
+
+  /* 가운데 OASIS 로고 */
+  .oasis-phone .header-logo {
+    font-size: 23px;
+  }
+
+  .oasis-phone .header-logo a {
+    padding: 7px 13px;
+    border-width: 2px;
+  }
+
+  /* 실제 콘텐츠 스크롤 영역 */
+  .oasis-phone .content-area {
+    height: calc(100% - 68px);
+    padding-bottom: 82px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* 하단 네비 */
+  .oasis-phone .bottom-nav {
+    position: absolute;
+
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 10px;
+
+    width: auto !important;
+    height: 62px;
+
+    margin: 0 !important;
+
+    border-radius: 0 0 29px 29px;
+  }
+
+  /* 다이나믹 아일랜드는 숨김
+     → 포트폴리오 앱 목업처럼 더 깔끔하게 */
+  .oasis-phone-island {
+    display: none !important;
+  }
+
+  /* 홈바 */
+  .oasis-phone-homebar {
+    display: block;
+
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+
+    width: 90px;
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.8);
+
+    z-index: 101;
+    pointer-events: none;
+  }
+}
+
+/* =========================================================
+   OASIS DESKTOP MOCKUP - SIZE BALANCE FIX
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .oasis-phone-stage {
+    justify-content: center;
+    padding: 28px 70px 28px 35px;
+  }
+
+  .oasis-phone {
+    width: min(520px, 92%);
+    height: min(820px, calc(100vh - 55px));
+
+    min-height: 740px;
+    max-height: 820px;
+  }
+}
+
+/* =========================================================
+   PHONE PREVIEW - SHOP / LIVE MOBILE FIX
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* =========================
+     SAVED
+     ========================= */
+
+  .oasis-phone .saved-list {
+    display: block;
+    padding: 18px 16px 90px;
+  }
+
+  .oasis-phone .saved-item {
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 14px;
+
+    width: 100%;
+    padding: 16px;
+
+    border: 1px solid rgba(11, 31, 58, 0.28);
+  }
+
+  .oasis-phone .saved-item .item-image {
+    width: 92px;
+    height: 92px;
+  }
+
+  .oasis-phone .saved-item .item-details {
+    min-width: 0;
+  }
+
+  .oasis-phone .saved-item .item-details h4 {
+    font-size: 15px;
+    line-height: 1.3;
+
+    word-break: keep-all;
+  }
+
+  .oasis-phone .saved-item .item-details p {
+    font-size: 12px;
+  }
+
+  .oasis-phone .action-buttons-sm {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-top: 10px;
+  }
+
+  .oasis-phone .action-buttons-sm .btn-outline {
+    width: 100%;
+
+    min-height: 38px;
+
+    padding: 8px 10px;
+
+    white-space: nowrap;
+    text-align: center;
+
+    font-size: 12px;
+  }
+
+
+  /* =========================
+     CART
+     ========================= */
+
+  .oasis-phone .cart-layout {
+    display: block;
+
+    padding: 18px 16px 100px;
+  }
+
+  .oasis-phone .cart-list {
+    width: 100%;
+  }
+
+  .oasis-phone .cart-item {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 14px;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .oasis-phone .cart-item .item-image {
+    width: 88px;
+    height: 88px;
+  }
+
+  .oasis-phone .cart-item .item-details {
+    min-width: 0;
+  }
+
+  .oasis-phone .cart-item .item-details h4 {
+    font-size: 15px;
+    line-height: 1.3;
+
+    word-break: keep-all;
+  }
+
+  .oasis-phone .cart-item .item-price {
+    grid-column: 2;
+
+    margin-top: 6px;
+
+    text-align: left;
+  }
+
+  .oasis-phone .cart-summary {
+    width: 100%;
+
+    margin-top: 18px;
+    padding: 18px;
+
+    background: #e8dbca;
+  }
+
+  .oasis-phone .cart-summary h3 {
+    margin-bottom: 16px;
+
+    font-size: 18px;
+  }
+
+  .oasis-phone .cart-summary .summary-line {
+    font-size: 13px;
+  }
+
+  .oasis-phone .cart-summary .summary-line.total {
+    font-size: 17px;
+  }
+
+
+  /* =========================
+     EDITION
+     ========================= */
+
+  .oasis-phone .edition-list {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    padding: 16px 16px 100px;
+  }
+
+  .oasis-phone .product-card {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 16px;
+
+    padding: 14px;
+
+    border: 1px solid rgba(11, 31, 58, 0.28);
+  }
+
+  .oasis-phone .product-image {
+    width: 150px;
+    height: 150px;
+
+    margin: 0;
+  }
+
+  .oasis-phone .product-info {
+    min-width: 0;
+  }
+
+  .oasis-phone .product-info h3 {
+    margin-bottom: 6px;
+
+    font-size: 17px;
+    line-height: 1.25;
+
+    word-break: keep-all;
+  }
+
+  .oasis-phone .product-type,
+  .oasis-phone .product-price {
+    font-size: 13px;
+  }
+
+  .oasis-phone .product-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    margin-top: 10px;
+  }
+
+  .oasis-phone .product-buttons button {
+    min-height: 36px;
+
+    padding: 7px 10px;
+
+    font-size: 11px;
+  }
+
+
+  /* =========================
+     LIVE
+     ========================= */
+
+  .oasis-phone .live-tour-section {
+    display: block;
+
+    padding: 18px 16px 100px;
+  }
+
+  .oasis-phone .live-tour-poster {
+    width: 100%;
+
+    margin-bottom: 20px;
+  }
+
+  .oasis-phone .live-tour-schedule {
+    width: 100%;
+  }
+
+  .oasis-phone .live-tour-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 12px;
+  }
+
+  .oasis-phone .live-tour-header h2 {
+    font-size: 24px;
+  }
+
+  .oasis-phone .live-tour-row {
+    display: grid;
+    grid-template-columns: 65px minmax(0, 1fr);
+    gap: 12px;
+
+    padding: 16px 0;
+  }
+
+  .oasis-phone .live-tour-date strong {
+    font-size: 17px;
+  }
+
+  .oasis-phone .live-tour-place h3 {
+    font-size: 15px;
+
+    word-break: keep-all;
+  }
+
+  .oasis-phone .live-tour-place p {
+    font-size: 11px;
+  }
+
+  .oasis-phone .live-tour-action {
+    grid-column: 2;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin-top: 4px;
+  }
+
+  .oasis-phone .live-book-btn {
+    min-height: 36px;
+
+    padding: 7px 12px;
+
+    font-size: 11px;
+  }
+
+  .oasis-phone .live-sold-out {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   OASIS MOBILE PREVIEW - NO DEVICE FRAME
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 36px 56px;
+
+    background: #eee3d1;
+  }
+
+  /* 아이폰 → 모바일 웹 프리뷰 카드 */
+  .oasis-phone {
+    position: relative;
+
+    width: min(500px, 90%);
+    height: min(800px, calc(100vh - 70px));
+
+    min-height: 720px;
+    max-height: 800px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #f3eadb;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 28px 70px rgba(11, 31, 58, 0.14),
+      0 8px 24px rgba(11, 31, 58, 0.08);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .oasis-phone:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+      0 34px 80px rgba(11, 31, 58, 0.18),
+      0 10px 28px rgba(11, 31, 58, 0.10);
+  }
+
+  /* 실제 앱 */
+  .oasis-phone>.app-container {
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    border: none;
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background: #f3eadb;
+  }
+
+  /* 헤더 */
+  .oasis-phone .common-header {
+    border-radius: 22px 22px 0 0;
+  }
+
+  /* 하단 네비 */
+  .oasis-phone .bottom-nav {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0;
+
+    width: 100% !important;
+
+    border-radius: 0 0 22px 22px;
+  }
+
+  /* 모든 아이폰 장식 제거 */
+  .oasis-phone-island,
+  .oasis-phone-homebar {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   OASIS MOBILE PREVIEW - LARGE PORTFOLIO RATIO
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    padding: 20px 36px;
+
+    background: #eee3d1;
+  }
+
+  .oasis-phone {
+    width: min(560px, 94%);
+
+    height: min(860px,
+        calc(100vh - 40px));
+
+    min-height: 780px;
+    max-height: 860px;
+
+    border-radius: 20px;
+
+    box-shadow:
+      0 28px 65px rgba(11, 31, 58, 0.16),
+      0 8px 22px rgba(11, 31, 58, 0.08);
+  }
+
+  .oasis-phone>.app-container {
+    border-radius: 20px;
+  }
+
+  .oasis-phone .common-header {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .oasis-phone .bottom-nav {
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+/* =========================================================
+   DESKTOP 65 : 35 + TALL MOBILE PREVIEW
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 왼쪽 웹 크게 / 오른쪽 모바일 프리뷰 작게 */
+  .oasis-desktop-shell {
+    grid-template-columns: 64% 36%;
+  }
+
+
+  /* 오른쪽 프리뷰 영역 */
+  .oasis-phone-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    padding: 14px 32px;
+
+    background: #eee3d1;
+  }
+
+
+  /* 세로로 긴 모바일 웹 프리뷰 */
+  .oasis-phone {
+    position: relative;
+
+    width: min(430px, 94%);
+
+    height: calc(100vh - 28px);
+    max-height: 930px;
+    min-height: 760px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #f3eadb;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 28px 70px rgba(11, 31, 58, 0.16),
+      0 10px 28px rgba(11, 31, 58, 0.08);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+
+  .oasis-phone:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+      0 34px 80px rgba(11, 31, 58, 0.19),
+      0 12px 30px rgba(11, 31, 58, 0.1);
+  }
+
+
+  /* 실제 앱 전체 */
+  .oasis-phone>.app-container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 22px;
+
+    background: #f3eadb;
+  }
+
+
+  /* 헤더는 위에 고정 */
+  .oasis-phone .common-header {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    z-index: 30;
+
+    border-radius: 22px 22px 0 0;
+
+    background: #f3eadb;
+  }
+
+
+  /* 핵심:
+     가운데 콘텐츠만 위아래 스크롤 */
+  .oasis-phone .content-area {
+    flex: 1;
+
+    width: 100%;
+    max-width: none;
+
+    min-height: 0;
+
+    margin: 0;
+
+    padding-bottom: 88px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+  }
+
+
+  /* 하단 NAV는 항상 화면 아래 고정 */
+  .oasis-phone .bottom-nav {
+    position: absolute;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    z-index: 50;
+
+    border-radius: 0 0 22px 22px;
+  }
+
+
+  /* 목업 장식 전부 제거 */
+  .oasis-phone-island,
+  .oasis-phone-homebar {
+    display: none !important;
+  }
+}
+
+
+/* 큰 모니터에서는 왼쪽을 더 시원하게 */
+@media (min-width: 1600px) {
+
+  .oasis-desktop-shell {
+    grid-template-columns: 66% 34%;
+  }
+
+  .oasis-phone {
+    width: 440px;
+    height: calc(100vh - 24px);
+    max-height: 950px;
+  }
+
+}
+
+/* =========================================================
+   FINAL DESKTOP LAYOUT
+   LEFT WEB + RIGHT MOBILE SCREEN
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 전체 화면 */
+  .oasis-desktop-shell {
+    display: grid;
+    grid-template-columns: 64% 36%;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     오른쪽 모바일 영역
+     바깥 여백 완전 제거
+     ========================= */
+
+  .oasis-phone-stage {
+    display: block;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #f3eadb;
+
+    overflow: hidden;
+  }
+
+
+  /* 기존 휴대폰 프레임 제거 */
+  .oasis-phone {
+    position: relative;
+
+    width: 100% !important;
+    height: 100vh !important;
+
+    min-width: 0 !important;
+    max-width: none !important;
+
+    min-height: 0 !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    background: #f3eadb;
+
+    box-shadow: none !important;
+
+    overflow: hidden;
+
+    transform: none !important;
+  }
+
+
+  .oasis-phone:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+
+  /* 실제 앱 */
+  .oasis-phone>.app-container {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    width: 100% !important;
+    height: 100vh !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+    border-radius: 0 !important;
+
+    overflow: hidden;
+
+    background: #f3eadb;
+  }
+
+
+  /* HEADER */
+  .oasis-phone .common-header {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border-radius: 0 !important;
+
+    z-index: 30;
+  }
+
+
+  /* 실제 페이지 콘텐츠 */
+  .oasis-phone .content-area {
+    flex: 1;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    min-height: 0;
+
+    margin: 0 !important;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-bottom: 80px;
+
+    scrollbar-width: thin;
+  }
+
+
+  /* 하단 네비게이션 */
+  .oasis-phone .bottom-nav {
+    position: absolute;
+
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    border-radius: 0 !important;
+
+    z-index: 50;
+  }
+
+
+  /* 기존 아이폰 장식 완전히 제거 */
+  .oasis-phone-island,
+  .oasis-phone-homebar {
+    display: none !important;
+  }
+
+}
+
+/* =========================================================
+   DESKTOP LEFT AREA - HOVER INTERACTIONS
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* =========================
+     LEFT MENU
+     ========================= */
+
+  .oasis-desktop-links a {
+    position: relative;
+    overflow: hidden;
+
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  /* 메뉴 호버 */
+  .oasis-desktop-links a:hover {
+    background: #f3eadb;
+    color: #0b1f3a;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  /* 메뉴 글자 */
+  .oasis-desktop-links a span {
+    position: relative;
+    z-index: 2;
+
+    transition:
+      transform 0.25s ease,
+      letter-spacing 0.25s ease;
+  }
+
+  .oasis-desktop-links a:hover span {
+    transform: translateX(4px);
+    letter-spacing: 0.5px;
+  }
+
+  /* 오른쪽 화살표 */
+  .oasis-desktop-links a strong {
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .oasis-desktop-links a:hover strong {
+    transform: translateX(7px);
+  }
+
+
+  /* =========================
+     ALBUM COVERS
+     ========================= */
+
+  .oasis-desktop-album {
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .oasis-desktop-album img {
+    display: block;
+
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.3s ease;
+  }
+
+  /* 앨범 전체 살짝 상승 */
+  .oasis-desktop-album:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+      0 12px 26px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 이미지 확대 */
+  .oasis-desktop-album:hover img {
+    transform: scale(1.07);
+  }
+
+  /* 연도 */
+  .oasis-desktop-album span {
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .oasis-desktop-album:hover span {
+    transform: translateY(-2px);
+  }
+
+
+  /* =========================
+     TITLE - VERY SUBTLE
+     ========================= */
+
+  .oasis-desktop-intro h1 {
+    transition:
+      transform 0.35s ease,
+      text-shadow 0.35s ease;
+  }
+
+  .oasis-desktop-intro h1:hover {
+    transform: translateX(4px);
+
+    text-shadow:
+      5px 5px 0 rgba(243, 234, 219, 0.08);
+  }
+
+}
+
+/* =========================================================
+   OASIS VINYL CUSTOM CURSOR
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 왼쪽 데스크톱 영역에서 기본 마우스 커서 숨김 */
+  .oasis-desktop-intro,
+  .oasis-desktop-intro a,
+  .oasis-desktop-intro button {
+    cursor: none;
+  }
+
+  /* 커스텀 커서 전체 */
+  .oasis-custom-cursor {
+    position: fixed;
+
+    width: 28px;
+    height: 28px;
+
+    z-index: 99999;
+    pointer-events: none;
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%) scale(0.7);
+
+    transition:
+      opacity 0.15s ease,
+      transform 0.18s ease;
+  }
+
+  /* 커서가 왼쪽 영역에 들어왔을 때 */
+  .oasis-custom-cursor.visible {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%) scale(1);
+  }
+
+  /* =========================
+     LP판
+     ========================= */
+
+  .oasis-cursor-vinyl {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background:
+      repeating-radial-gradient(circle,
+        #111 0px,
+        #111 2px,
+        #252525 3px,
+        #111 4px);
+
+    box-shadow:
+      0 3px 10px rgba(0, 0, 0, 0.28);
+
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    animation: oasisVinylSpin 5s linear infinite;
+  }
+
+  /* LP 회전 */
+  @keyframes oasisVinylSpin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* =========================
+     LP 홈
+     ========================= */
+
+  .oasis-cursor-ring {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .oasis-cursor-ring.ring-1 {
+    width: 20px;
+    height: 20px;
+  }
+
+  .oasis-cursor-ring.ring-2 {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* =========================
+     LP 가운데 라벨
+     ========================= */
+
+  .oasis-cursor-label {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: #f3eadb;
+
+    transform: translate(-50%, -50%);
+  }
+
+  /* 기본 상태에서는 PLAY 숨김 */
+  .oasis-cursor-play {
+    color: #0b1f3a;
+
+    font-size: 5px;
+    line-height: 1;
+
+    opacity: 0;
+
+    transform:
+      translateX(0.5px) scale(0);
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  /* =========================
+     링크 / 버튼 위
+     ========================= */
+
+  .oasis-custom-cursor.interactive {
+    transform:
+      translate(-50%, -50%) scale(1.65);
+  }
+
+  .oasis-custom-cursor.interactive .oasis-cursor-vinyl {
+    box-shadow:
+      0 5px 18px rgba(0, 0, 0, 0.34);
+  }
+
+  .oasis-custom-cursor.interactive .oasis-cursor-play {
+    opacity: 1;
+
+    transform:
+      translateX(0.5px) scale(1);
+  }
+
+  /* =========================
+     클릭하는 순간
+     ========================= */
+
+  .oasis-custom-cursor.clicking {
+    transform:
+      translate(-50%, -50%) scale(0.82);
+  }
+
+  .oasis-custom-cursor.interactive.clicking {
+    transform:
+      translate(-50%, -50%) scale(1.35);
+  }
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   커스텀 커서 사용 안 함
+   ========================================================= */
+
+@media (max-width: 1199px) {
+
+  .oasis-custom-cursor {
+    display: none;
+  }
+
+}
+
+/* =========================================================
+   DESKTOP CURRENT PAGE ACTIVE
+   현재 보고 있는 페이지를 왼쪽 메뉴에 표시
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+  /* 현재 활성화된 메뉴 */
+  .oasis-desktop-links a.desktop-link-active {
+    background: #f3eadb;
+    color: #0b1f3a;
+
+    box-shadow:
+      inset 0 0 0 1px rgba(243, 234, 219, 0.5),
+      0 7px 18px rgba(0, 0, 0, 0.1);
+  }
+
+
+  /* 활성 메뉴 텍스트 */
+  .oasis-desktop-links a.desktop-link-active span {
+    transform: translateX(4px);
+    letter-spacing: 0.5px;
+  }
+
+
+  /* 활성 메뉴 화살표 */
+  .oasis-desktop-links a.desktop-link-active strong {
+    transform: translateX(5px);
+  }
+
+
+  /* 현재 페이지 표시 작은 점 */
+  .oasis-desktop-links a.desktop-link-active::after {
+    content: '';
+
+    position: absolute;
+    right: 16px;
+    bottom: 10px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+    background: #0b1f3a;
+
+    opacity: 0.85;
+  }
+
+
+  /* 활성 상태에서 호버해도 디자인 유지 */
+  .oasis-desktop-links a.desktop-link-active:hover {
+    background: #f3eadb;
+    color: #0b1f3a;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+      inset 0 0 0 1px rgba(243, 234, 219, 0.5),
+      0 9px 22px rgba(0, 0, 0, 0.14);
+  }
+}
+
+/* =========================================================
+   HOME REAL AUDIO PLAYER
+   ========================================================= */
+
+.home-player-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  min-width: 170px;
+}
+
+.home-player-progress {
+  position: relative;
+
+  width: 100%;
+  height: 4px;
+
+  background: rgba(11, 31, 58, 0.2);
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.home-player-progress-fill {
+  width: 0;
+  height: 100%;
+
+  background: #0b1f3a;
+
+  transition: width 0.1s linear;
+
+  pointer-events: none;
+}
+
+.home-player-cover.playing img {
+  animation: homeAlbumPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes homeAlbumPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+.home-player-play {
+  min-width: 42px;
+}
+
+@media (max-width: 700px) {
+  .home-player-main {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   PAGE TRANSITION
+   페이지 이동 시 부드럽게 등장
+   ========================================================= */
+
+.content-area {
+  animation: oasisPageEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes oasisPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CARD / BUTTON HOVER
+   사이트 전체 인터랙션 보강
+   ========================================================= */
+
+@media (hover: hover) {
+
+  .home-news-card,
+  .home-feature-card,
+  .oasis-desktop-album {
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+
+  .home-news-card:hover,
+  .home-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(11, 31, 58, 0.12);
+  }
+
+
+  /* 앨범 커버 */
+  .oasis-desktop-album {
+    overflow: hidden;
+  }
+
+  .oasis-desktop-album img {
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.3s ease;
+  }
+
+  .oasis-desktop-album:hover img {
+    transform: scale(1.055);
+    filter: brightness(0.82);
+  }
+
+
+  /* 앨범 연도 */
+  .oasis-desktop-album span {
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .oasis-desktop-album:hover span {
+    transform: translateY(-3px);
+    background: #f3eadb;
+    color: #0b1f3a;
+  }
+
+
+  /* 공통 버튼 클릭감 */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:active,
+  .home-story-btn:active,
+  .home-vinyl-btn:active {
+    transform: scale(0.97);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   모션 감소 설정 사용자 대응
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .content-area {
+    animation: none;
+  }
+
+  .home-player-cover.playing img {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   OASIS 404 PAGE
+   ========================================================= */
+
+.page-not-found {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100%;
+
+  padding: 60px 30px 120px;
+
+  overflow: hidden;
+
+  background: #f3eadb;
+  color: #0b1f3a;
+}
+
+.not-found-inner {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+
+  text-align: center;
+
+  z-index: 2;
+}
+
+.not-found-kicker {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  opacity: 0.65;
+}
+
+.not-found-inner h1 {
+  margin: 0;
+
+  font-size: clamp(90px, 20vw, 170px);
+  line-height: 0.9;
+
+  font-weight: 900;
+  letter-spacing: -8px;
+}
+
+.not-found-inner h2 {
+  margin: 18px 0 14px;
+
+  font-size: clamp(25px, 5vw, 40px);
+  line-height: 1;
+
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.not-found-inner p {
+  margin: 0 auto 28px;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  opacity: 0.72;
+}
+
+.not-found-home-btn {
+  position: relative;
+  z-index: 5;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+
+  padding: 13px 18px;
+
+  border: 1px solid #0b1f3a;
+
+  background: #0b1f3a;
+  color: #f3eadb;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.not-found-home-btn span {
+  transition: transform 0.25s ease;
+}
+
+.not-found-home-btn:hover {
+  background: #f3eadb;
+  color: #0b1f3a;
+
+  transform: translateY(-3px);
+}
+
+.not-found-home-btn:hover span {
+  transform: translateX(5px);
+}
+
+
+/* LP 장식 */
+
+.not-found-vinyl {
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: -120px;
+  bottom: -160px;
+
+  border-radius: 50%;
+
+  background:
+    repeating-radial-gradient(circle,
+      #0b1f3a 0px,
+      #0b1f3a 5px,
+      #172d4b 6px,
+      #0b1f3a 8px);
+
+  opacity: 0.13;
+
+  animation: notFoundVinylSpin 14s linear infinite;
+
+  pointer-events: none;
+}
+
+.not-found-vinyl-ring {
+  position: absolute;
+
+  inset: 30px;
+
+  border: 1px solid rgba(243, 234, 219, 0.35);
+  border-radius: 50%;
+}
+
+.not-found-vinyl-label {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 75px;
+  height: 75px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #f3eadb;
+  color: #0b1f3a;
+
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.not-found-vinyl-hole {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #0b1f3a;
+}
+
+@keyframes notFoundVinylSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found-vinyl {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   PAGE TRANSITION
+   페이지 이동 시 부드러운 등장 효과
+   ========================================================= */
+
+.page-transition {
+  animation: oasisPageIn 0.45s ease both;
+}
+
+@keyframes oasisPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 모션 감소 설정 사용자 대응 */
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+}
+
+/* ========================================
+   EDITION - 앨범 이미지 인터랙션
+======================================== */
+
+.product-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.product-image {
+  overflow: hidden;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  transition: transform 0.45s ease;
+}
+
+/* 마우스를 사용하는 PC에서만 hover 적용 */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(11, 31, 58, 0.18);
+  }
+
+  .product-card:hover .product-image img {
+    transform: scale(1.045);
+  }
+}
+
+/* 모바일 터치 피드백 */
+.product-card:active {
+  transform: scale(0.99);
+}
+
+/* 움직임 최소화 설정 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+
+  .product-card,
+  .product-image img {
+    transition: none;
+  }
+}
+
+/* ========================================
+   STORY - 사진 인터랙션
+======================================== */
+
+/* 주요 이야기 카드 */
+.story-highlight-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.story-highlight-image {
+  overflow: hidden;
+}
+
+.story-highlight-image img {
+  display: block;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+/* 스크랩북 사진 */
+.story-scrapbook-photo {
+  overflow: hidden;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.story-scrapbook-photo img {
+  display: block;
+  width: 100%;
+  transition: transform 0.5s ease;
+}
+
+/* 마우스를 사용하는 PC에서만 적용 */
+@media (hover: hover) and (pointer: fine) {
+  .story-highlight-card:hover {
+    transform: translateY(-6px) rotate(-0.4deg);
+    box-shadow: 0 16px 32px rgba(11, 31, 58, 0.17);
+  }
+
+  .story-highlight-card:nth-child(even):hover {
+    transform: translateY(-6px) rotate(0.4deg);
+  }
+
+  .story-highlight-card:hover .story-highlight-image img {
+    transform: scale(1.05);
+  }
+
+  .story-scrapbook-photo:hover {
+    transform: rotate(1.2deg) scale(1.015);
+    box-shadow: 0 18px 36px rgba(11, 31, 58, 0.2);
+  }
+
+  .story-scrapbook-photo:hover img {
+    transform: scale(1.04);
+  }
+}
+
+/* 모바일 터치 피드백 */
+.story-highlight-card:active,
+.story-scrapbook-photo:active {
+  transform: scale(0.985);
+}
+
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+
+  .story-highlight-card,
+  .story-highlight-image img,
+  .story-scrapbook-photo,
+  .story-scrapbook-photo img {
+    transition: none;
+  }
+}
+
+/* ========================================
+   MEMBERS - 멤버 사진 인터랙션
+======================================== */
+
+.members-current-card {
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.members-current-card>img {
+  display: block;
+  width: 100%;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* 전체 프로필 모달 카드 */
+.all-profile-card {
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.all-profile-card img {
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+/* 마우스를 사용하는 PC에서만 hover 적용 */
+@media (hover: hover) and (pointer: fine) {
+  .members-current-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 32px rgba(11, 31, 58, 0.18);
+  }
+
+  .members-current-card:hover>img {
+    transform: scale(1.055);
+    filter: contrast(1.04) saturate(1.04);
+  }
+
+  .all-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(11, 31, 58, 0.17);
+  }
+
+  .all-profile-card:hover img {
+    transform: scale(1.05);
+    filter: contrast(1.04) saturate(1.04);
+  }
+}
+
+/* 모바일 터치 피드백 */
+.members-current-card:active,
+.all-profile-card:active {
+  transform: scale(0.985);
+}
+
+/* 움직임 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+
+  .members-current-card,
+  .members-current-card>img,
+  .all-profile-card,
+  .all-profile-card img {
+    transition: none;
+  }
+}
+
+/* ========================================
+   MEMBERS - 최종 레이아웃 및 인터랙션 보정
+======================================== */
+
+/* 내부 가로 목록 때문에 페이지 전체가 옆으로 밀리지 않도록 제한 */
+.page-members {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.members-current-list,
+.members-history-timeline {
+  max-width: 100%;
+  overscroll-behavior-x: contain;
+}
+
+/* 타임라인 선을 첫 번째 점부터 마지막 점까지 정확히 연결 */
+.members-history-timeline::before {
+  left: 77px;
+  right: auto;
+  top: calc(50% - 35px);
+  width: 590px;
+}
+
+/* 컬러 원본은 평소 흑백, hover 시 컬러로 표시 */
+.members-current-card>img,
+.all-profile-card img {
+  filter: grayscale(100%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .members-current-card:hover>img,
+  .all-profile-card:hover img {
+    filter: grayscale(0%) contrast(1.04) saturate(1.04);
+  }
+}
+
+/* 모바일에서는 소개 영역과 연혁을 위아래로 배치 */
+@media (max-width: 700px) {
+  .members-history {
+    display: block;
+    margin: 0 12px 90px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .members-history-intro {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  .members-history-intro h2 {
+    white-space: normal;
+  }
+
+  .members-history-timeline {
+    width: 100%;
+    min-height: 180px;
+    padding: 30px 22px 24px;
+    grid-auto-columns: 110px;
+    gap: 8px;
+  }
+
+  .members-history-timeline::before {
+    left: 77px;
+    top: calc(50% - 35px);
+    width: 590px;
+  }
+}
+
+/* ========================================
+   HOME / LIVE / CUSTOMIZE - 최종 인터랙션
+======================================== */
+
+/* 이미지가 확대될 때 카드 밖으로 넘치지 않도록 처리 */
+.home-main-hero,
+.home-news-image,
+.live-main-hero,
+.live-tour-poster,
+.live-news-image,
+.customize-visual {
+  overflow: hidden;
+}
+
+.home-main-hero-img,
+.home-news-image img,
+.live-main-hero-img,
+.live-tour-poster img,
+.live-news-image img,
+.customize-visual img {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-news-card,
+.home-feature-card,
+.live-tour-poster,
+.live-tour-row,
+.live-news-card,
+.customize-visual,
+.customize-summary {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.option-buttons button {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.option-buttons button.active {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(11, 31, 58, 0.14);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  /* HOME */
+  .home-main-hero:hover .home-main-hero-img {
+    transform: scale(1.015);
+  }
+
+  .home-news-card:hover,
+  .home-feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(11, 31, 58, 0.14);
+  }
+
+  .home-news-card:hover .home-news-image img {
+    transform: scale(1.05);
+  }
+
+  .home-vinyl-banner:hover .home-vinyl-visual img {
+    transform: rotate(3deg) scale(1.04);
+  }
+
+  /* LIVE */
+  .live-main-hero:hover .live-main-hero-img {
+    transform: scale(1.015);
+  }
+
+  .live-tour-poster:hover,
+  .live-news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(11, 31, 58, 0.15);
+  }
+
+  .live-tour-poster:hover img,
+  .live-news-card:hover .live-news-image img {
+    transform: scale(1.05);
+  }
+
+  .live-tour-row:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px rgba(11, 31, 58, 0.08);
+  }
+
+  .live-book-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(11, 31, 58, 0.16);
+  }
+
+  /* CUSTOMIZE */
+  .customize-visual:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(11, 31, 58, 0.13);
+  }
+
+  .customize-visual:hover img {
+    transform: scale(1.04) rotate(-0.5deg);
+  }
+
+  .option-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(11, 31, 58, 0.1);
+  }
+
+  .customize-summary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(11, 31, 58, 0.1);
+  }
+}
+
+/* 모바일 터치 피드백 */
+.home-news-card:active,
+.home-feature-card:active,
+.live-tour-row:active,
+.live-news-card:active,
+.option-buttons button:active {
+  transform: scale(0.985);
+}
+
+/* ========================================
+   CART / SAVED / CHECKOUT - 최종 보정
+======================================== */
+
+.shop-empty-state {
+  padding: 40px 24px;
+  color: rgba(11, 31, 58, 0.65);
+}
+
+.shop-empty-state .btn-primary {
+  display: inline-flex;
+  margin-top: 16px;
+}
+
+.cart-item,
+.saved-item,
+.cart-summary {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cart-item .item-image,
+.saved-item .item-image {
+  overflow: hidden;
+}
+
+.cart-item .item-image img,
+.saved-item .item-image img {
+  transition: transform 0.45s ease;
+}
+
+.item-actions select {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.item-price-detail {
+  display: block;
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .cart-item:hover,
+  .saved-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 13px 28px rgba(11, 31, 58, 0.13);
+  }
+
+  .cart-item:hover .item-image img,
+  .saved-item:hover .item-image img {
+    transform: scale(1.05);
+  }
+
+  .cart-summary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(11, 31, 58, 0.11);
+  }
+
+  .item-actions select:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 12px rgba(11, 31, 58, 0.08);
+  }
+
+  .btn-close:hover,
+  .checkout-modal-close:hover {
+    transform: rotate(90deg) scale(1.08);
+  }
+}
+
+.checkout-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.62);
+  animation: checkoutOverlayIn 0.22s ease both;
+}
+
+.checkout-modal {
+  position: relative;
+  width: min(400px, 100%);
+  padding: 40px 32px 32px;
+  border: 1px solid #0b1f3a;
+  border-radius: 14px;
+  background: #f3eadb;
+  color: #0b1f3a;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  animation: checkoutModalIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.checkout-modal-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.checkout-modal h3 {
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.checkout-modal p {
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.checkout-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #0b1f3a;
+  color: #fff;
+  font-size: 23px;
+  line-height: 1;
+  transition: transform 0.22s ease;
+}
+
+@keyframes checkoutOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes checkoutModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 700px) {
+  .checkout-modal {
+    padding: 36px 22px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .checkout-modal-overlay,
+  .checkout-modal {
+    animation: none;
   }
 }

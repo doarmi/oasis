@@ -1,8 +1,10 @@
 import { useState } from 'react';
+
 import storyHeroImage from '../assets/oasis-hero.jpg';
 import manchesterImage from '../assets/oasis-hero.jpg';
 import knebworthImage from '../assets/knebworth-1996.jpg';
 import albumStoryImage from '../assets/morning-glory.jpg';
+
 export default function Story() {
   const [showFullTimeline, setShowFullTimeline] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,9 +13,12 @@ export default function Story() {
     storyHeroImage,
     knebworthImage,
     albumStoryImage,
-  ]
+  ];
+
   return (
     <div className="page-story">
+
+      {/* STORY INTRO */}
       <section className="story-intro">
         <div>
           <h2>STORY</h2>
@@ -24,12 +29,16 @@ export default function Story() {
           Live Forever
         </div>
       </section>
+
+
+      {/* STORY HERO */}
       <section className="story-hero">
         <img
           src={storySlides[currentSlide]}
           alt="Oasis story"
           className="story-hero-img"
         />
+
         <div className="story-hero-overlay"></div>
 
         <div className="story-hero-content">
@@ -51,7 +60,10 @@ export default function Story() {
             onClick={() =>
               document
                 .getElementById('story-timeline')
-                ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                ?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                })
             }
           >
             연혁 보기 <span>›</span>
@@ -61,9 +73,12 @@ export default function Story() {
         <button
           type="button"
           className="story-arrow story-arrow-left"
+          aria-label="이전 이미지"
           onClick={() =>
             setCurrentSlide((prev) =>
-              prev === 0 ? storySlides.length - 1 : prev - 1
+              prev === 0
+                ? storySlides.length - 1
+                : prev - 1
             )
           }
         >
@@ -73,9 +88,12 @@ export default function Story() {
         <button
           type="button"
           className="story-arrow story-arrow-right"
+          aria-label="다음 이미지"
           onClick={() =>
             setCurrentSlide((prev) =>
-              prev === storySlides.length - 1 ? 0 : prev + 1
+              prev === storySlides.length - 1
+                ? 0
+                : prev + 1
             )
           }
         >
@@ -86,23 +104,35 @@ export default function Story() {
           {storySlides.map((_, index) => (
             <span
               key={index}
-              className={currentSlide === index ? 'active' : ''}
+              className={
+                currentSlide === index
+                  ? 'active'
+                  : ''
+              }
               onClick={() => setCurrentSlide(index)}
             ></span>
           ))}
         </div>
       </section>
 
-      <section id="story-timeline" className="story-timeline">
+
+      {/* TIMELINE */}
+      <section
+        id="story-timeline"
+        className="story-timeline reveal"
+      >
         <div className="story-timeline-header">
           <h2>연대기</h2>
 
           <button
             type="button"
             className="story-timeline-more"
-            onClick={() => setShowFullTimeline((prev) => !prev)}
+            onClick={() =>
+              setShowFullTimeline((prev) => !prev)
+            }
           >
-            {showFullTimeline ? '접기' : '전체 보기'} <span>›</span>
+            {showFullTimeline ? '접기' : '전체 보기'}{' '}
+            <span>›</span>
           </button>
         </div>
 
@@ -139,15 +169,16 @@ export default function Story() {
           </div>
 
           <div className="story-timeline-item">
-
             <span className="story-timeline-dot"></span>
             <strong>2010–현재</strong>
             <p>그리고 지금</p>
           </div>
 
         </div>
+
         {showFullTimeline && (
           <div className="story-timeline-detail">
+
             <div className="story-timeline-detail-item">
               <strong>2009</strong>
               <p>밴드 활동 중단</p>
@@ -162,63 +193,99 @@ export default function Story() {
               <strong>2025</strong>
               <p>Oasis Live '25 월드 투어</p>
             </div>
+
           </div>
         )}
       </section>
 
-      <section className="story-highlights">
+
+      {/* HIGHLIGHTS */}
+      <section className="story-highlights reveal">
         <div className="story-highlights-header">
           <h2>주요 이야기</h2>
         </div>
 
         <div className="story-highlights-list">
+
           <article className="story-highlight-card">
             <div className="story-highlight-image">
-              <img src={manchesterImage} alt="Oasis Manchester" />
+              <img
+                src={manchesterImage}
+                alt="Oasis Manchester"
+              />
             </div>
+
             <div className="story-highlight-content">
               <span>ORIGIN</span>
               <h3>맨체스터의 시작</h3>
-              <p>1991년, 오아시스의 이야기가 시작된 순간.</p>
+              <p>
+                1991년, 오아시스의 이야기가 시작된 순간.
+              </p>
             </div>
           </article>
 
+
           <article className="story-highlight-card">
             <div className="story-highlight-image">
-              <img src={knebworthImage} alt="Oasis Knebworth 1996" />
+              <img
+                src={knebworthImage}
+                alt="Oasis Knebworth 1996"
+              />
             </div>
+
             <div className="story-highlight-content">
               <span>LIVE</span>
               <h3>Knebworth 1996</h3>
-              <p>브릿팝의 정점을 증명한 전설적인 무대.</p>
+              <p>
+                브릿팝의 정점을 증명한 전설적인 무대.
+              </p>
             </div>
           </article>
 
+
           <article className="story-highlight-card">
             <div className="story-highlight-image">
-              <img src={albumStoryImage} alt="Morning Glory album" />
+              <img
+                src={albumStoryImage}
+                alt="Morning Glory album"
+              />
             </div>
+
             <div className="story-highlight-content">
               <span>ALBUM</span>
               <h3>전설의 앨범</h3>
-              <p>시대를 바꾼 오아시스의 대표작들.</p>
+              <p>
+                시대를 바꾼 오아시스의 대표작들.
+              </p>
             </div>
           </article>
+
         </div>
       </section>
-      <section className="story-scrapbook">
+
+
+      {/* SCRAPBOOK */}
+      <section className="story-scrapbook reveal">
+
         <div className="story-quote">
           <p>
-            We see things<br />
+            We see things
+            <br />
             they'll never see.
           </p>
+
           <span>– Oasis</span>
         </div>
 
         <div className="story-scrapbook-photo">
-          <img src={knebworthImage} alt="Oasis live crowd" />
+          <img
+            src={knebworthImage}
+            alt="Oasis live crowd"
+          />
         </div>
+
       </section>
+
     </div>
   );
 }

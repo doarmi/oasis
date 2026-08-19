@@ -1,14 +1,35 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useShop } from '../context/ShopContext';
 import { useAuth } from '../context/AuthContext';
 
 export default function Header({ toggleDrawer }) {
   const { cart } = useShop();
   const { user, logout } = useAuth();
+
   const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [cartPulse, setCartPulse] = useState(false);
 
   const cartCount = cart.length;
+
+  useEffect(() => {
+    if (cartCount === 0) return;
+
+    setCartPulse(false);
+
+    const timer = setTimeout(() => {
+      setCartPulse(true);
+    }, 10);
+
+    const resetTimer = setTimeout(() => {
+      setCartPulse(false);
+    }, 350);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(resetTimer);
+    };
+  }, [cartCount]);
 
   const handleLogout = () => {
     logout();
@@ -18,6 +39,7 @@ export default function Header({ toggleDrawer }) {
   return (
     <header className="common-header">
       <button
+        type="button"
         onClick={toggleDrawer}
         className="hamburger-btn"
         aria-label="메뉴 열기"
@@ -50,7 +72,7 @@ export default function Header({ toggleDrawer }) {
             <button
               type="button"
               className="header-user-btn logged-in"
-              onClick={() => setIsAccountOpen(!isAccountOpen)}
+              onClick={() => setIsAccountOpen((prev) => !prev)}
               aria-label="계정 메뉴"
               aria-expanded={isAccountOpen}
             >
@@ -140,7 +162,11 @@ export default function Header({ toggleDrawer }) {
           </svg>
 
           {cartCount > 0 && (
-            <span className="header-cart-badge">{cartCount}</span>
+            <span
+              className={`header-cart-badge ${cartPulse ? 'pulse' : ''}`}
+            >
+              {cartCount}
+            </span>
           )}
         </Link>
       </div>

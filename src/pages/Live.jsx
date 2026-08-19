@@ -17,7 +17,9 @@ export default function Live() {
         <div className="live-main-hero-overlay"></div>
 
         <div className="live-main-hero-content">
-          <span className="live-main-label">LIVE</span>
+          <span className="live-main-label">
+            LIVE
+          </span>
 
           <h1>Tour & Live</h1>
 
@@ -33,7 +35,10 @@ export default function Live() {
             onClick={() => {
               document
                 .getElementById('live-tour')
-                ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                ?.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start',
+                });
             }}
           >
             투어 일정 보기 <span>›</span>
@@ -43,7 +48,10 @@ export default function Live() {
 
 
       {/* TOUR SECTION */}
-      <section id="live-tour" className="live-tour-section">
+      <section
+        id="live-tour"
+        className="live-tour-section reveal"
+      >
 
         <div className="live-tour-poster">
           <div className="live-tour-poster-inner">
@@ -85,7 +93,10 @@ export default function Live() {
               onClick={() => {
                 document
                   .getElementById('live-tour-list')
-                  ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  ?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                  });
               }}
             >
               전체 일정 보기 <span>›</span>
@@ -93,7 +104,10 @@ export default function Live() {
           </div>
 
 
-          <div id="live-tour-list" className="live-tour-list">
+          <div
+            id="live-tour-list"
+            className="live-tour-list"
+          >
 
             <article className="live-tour-row">
               <div className="live-tour-date">
@@ -107,7 +121,9 @@ export default function Live() {
               </div>
 
               <div className="live-tour-action">
-                <span className="live-sold-out">SOLD OUT</span>
+                <span className="live-sold-out">
+                  SOLD OUT
+                </span>
                 <small>매진</small>
               </div>
             </article>
@@ -125,7 +141,9 @@ export default function Live() {
               </div>
 
               <div className="live-tour-action">
-                <span className="live-sold-out">SOLD OUT</span>
+                <span className="live-sold-out">
+                  SOLD OUT
+                </span>
                 <small>매진</small>
               </div>
             </article>
@@ -146,10 +164,13 @@ export default function Live() {
                 <button
                   type="button"
                   className="live-book-btn"
-                  onClick={() => alert('예매 페이지를 준비 중입니다.')}
+                  onClick={() =>
+                    alert('예매 페이지를 준비 중입니다.')
+                  }
                 >
                   예매하기 <span>›</span>
                 </button>
+
                 <small>남은 티켓 있음</small>
               </div>
             </article>
@@ -170,10 +191,13 @@ export default function Live() {
                 <button
                   type="button"
                   className="live-book-btn"
-                  onClick={() => alert('예매 페이지를 준비 중입니다.')}
+                  onClick={() =>
+                    alert('예매 페이지를 준비 중입니다.')
+                  }
                 >
                   예매하기 <span>›</span>
                 </button>
+
                 <small>남은 티켓 있음</small>
               </div>
             </article>
@@ -194,10 +218,13 @@ export default function Live() {
                 <button
                   type="button"
                   className="live-book-btn"
-                  onClick={() => alert('예매 페이지를 준비 중입니다.')}
+                  onClick={() =>
+                    alert('예매 페이지를 준비 중입니다.')
+                  }
                 >
                   예매하기 <span>›</span>
                 </button>
+
                 <small>남은 티켓 있음</small>
               </div>
             </article>
@@ -213,7 +240,7 @@ export default function Live() {
 
 
       {/* LIVE NEWS */}
-      <section className="live-news">
+      <section className="live-news reveal">
 
         <div className="live-news-header">
           <h2>LIVE NEWS</h2>
@@ -221,7 +248,9 @@ export default function Live() {
           <button
             type="button"
             className="live-news-more"
-            onClick={() => alert('더 많은 라이브 뉴스를 준비 중입니다.')}
+            onClick={() =>
+              alert('더 많은 라이브 뉴스를 준비 중입니다.')
+            }
           >
             더보기 <span>›</span>
           </button>
@@ -232,54 +261,77 @@ export default function Live() {
 
           <article
             className="live-news-card"
-            onClick={() => alert('2025 월드 투어 추가 일정 소식을 준비 중입니다.')}
+            onClick={() =>
+              alert(
+                '2025 월드 투어 추가 일정 소식을 준비 중입니다.'
+              )
+            }
           >
             <div className="live-news-image">
               <img
                 src={liveHero}
                 alt="2025 월드 투어 추가 일정"
               />
+
               <span>ANNOUNCEMENT</span>
             </div>
 
-            <h3>2025 월드 투어 추가 일정 발표!</h3>
+            <h3>
+              2025 월드 투어 추가 일정 발표!
+            </h3>
+
             <time>2025.05.15</time>
           </article>
 
+
           <article
             className="live-news-card"
-            onClick={() => alert('런던 웸블리 공연 하이라이트 영상을 준비 중입니다.')}
+            onClick={() =>
+              alert(
+                '런던 웸블리 공연 하이라이트 영상을 준비 중입니다.'
+              )
+            }
           >
             <div className="live-news-image">
               <img
                 src={maineRoad1996}
                 alt="런던 웸블리 공연"
               />
+
               <span>MEDIA</span>
             </div>
 
-            <h3>런던 웸블리 공연 하이라이트 영상 공개</h3>
+            <h3>
+              런던 웸블리 공연 하이라이트 영상 공개
+            </h3>
+
             <time>2025.05.08</time>
           </article>
 
+
           <article
             className="live-news-card"
-            onClick={() => alert('리암 갤러거 투어 인터뷰를 준비 중입니다.')}
+            onClick={() =>
+              alert(
+                '리암 갤러거 투어 인터뷰를 준비 중입니다.'
+              )
+            }
           >
             <div className="live-news-image">
               <img
                 src={knebworth1996}
                 alt="Oasis Tour Interview"
               />
+
               <span>INTERVIEW</span>
             </div>
 
-            <h3>리암 갤러거, 투어에 대한 인터뷰 공개</h3>
+            <h3>
+              리암 갤러거, 투어에 대한 인터뷰 공개
+            </h3>
+
             <time>2025.04.30</time>
           </article>
-
-
-
 
         </div>
       </section>

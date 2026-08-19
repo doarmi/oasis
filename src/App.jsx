@@ -13,7 +13,7 @@ import Saved from './pages/Saved';
 import Login from './pages/Login';
 import { AuthProvider } from './context/AuthContext';
 import MyPage from './pages/MyPage';
-
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
               <Route path="saved" element={<Saved />} />
               <Route path="login" element={<Login />} />
               <Route path="mypage" element={<MyPage />} />
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </Router>
