@@ -9572,3 +9572,210 @@ select:focus-visible {
     animation: none;
   }
 }
+
+.
+
+/* Wonderwall 플랫폼 아이콘 */
+.home-player .music-platform-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.home-player .music-platform-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(11, 31, 58, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.home-player .music-platform-link svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+/* YouTube */
+.home-player .music-platform-link.youtube {
+  border-radius: 9px;
+  background: #ff0033;
+}
+
+/* Apple Music */
+.home-player .music-platform-link.apple-music {
+  border-radius: 9px;
+  background: linear-gradient(145deg,
+      #fa57c1 0%,
+      #ff375f 55%,
+      #fa233b 100%);
+}
+
+/* Spotify */
+.home-player .music-platform-link.spotify {
+  border-radius: 50%;
+  background: #1ed760;
+}
+
+/* 마우스 인터랙션 */
+.home-player .music-platform-link:hover {
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 6px 12px rgba(11, 31, 58, 0.25);
+  filter: brightness(1.05);
+}
+
+.home-player .music-platform-link:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.home-player .music-platform-link:focus-visible {
+  outline: 2px solid #0b1f3a;
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .home-player .music-platform-links {
+    gap: 7px;
+    margin-top: 7px;
+  }
+
+  .home-player .music-platform-link {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .home-player .music-platform-link svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* 플랫폼별 포인트 컬러 */
+.home-player .music-platform-link.youtube:hover {
+  background: #ff0033;
+}
+
+.home-player .music-platform-link.apple-music:hover {
+  background: #111111;
+}
+
+.home-player .music-platform-link.spotify:hover {
+  background: #1db954;
+}
+
+.home-player .music-platform-link:focus-visible {
+  outline: 2px solid #0b1f3a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .home-player .music-platform-links {
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .home-player .music-platform-link {
+    min-height: 24px;
+    padding: 5px 8px;
+    font-size: 8px;
+  }
+}
+
+/* 플랫폼 버튼 최종 보정 */
+.home-player .home-player-text {
+  min-width: 145px;
+}
+
+.home-player .music-platform-links {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: max-content;
+  margin-top: 7px;
+}
+
+.home-player .music-platform-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  color: #ffffff;
+  font-size: 0;
+  line-height: 1;
+  text-decoration: none;
+}
+
+/* 아이콘 공통 */
+.home-player .music-platform-link::before {
+  display: block;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* YouTube */
+.home-player .music-platform-link.youtube {
+  border-radius: 8px;
+  background: #ff0033;
+}
+
+.home-player .music-platform-link.youtube::before {
+  content: "▶";
+  margin-left: 2px;
+  font-size: 12px;
+}
+
+/* Apple Music */
+.home-player .music-platform-link.apple-music {
+  border-radius: 8px;
+  background: linear-gradient(145deg,
+      #fa57c1,
+      #ff375f 55%,
+      #fa233b);
+}
+
+.home-player .music-platform-link.apple-music::before {
+  content: "♪";
+  font-size: 18px;
+}
+
+/* Spotify */
+.home-player .music-platform-link.spotify {
+  border-radius: 50%;
+  background: #1ed760;
+}
+
+.home-player .music-platform-link.spotify::before {
+  content: "≋";
+  font-size: 20px;
+  transform: rotate(7deg);
+}
+
+.home-player .music-platform-link:hover {
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.06);
+}

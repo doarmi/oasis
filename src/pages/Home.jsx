@@ -34,9 +34,6 @@ export default function Home() {
             }
         } catch (error) {
             console.log('Audio playback failed:', error);
-            alert(
-                '음원 파일을 찾을 수 없습니다.\npublic/audio/wonderwall-preview.mp3 파일을 확인해주세요.'
-            );
         }
     };
 
@@ -108,7 +105,6 @@ export default function Home() {
 
     return (
         <div className="page-home">
-
             {/* 실제 오디오 */}
             <audio
                 ref={audioRef}
@@ -146,26 +142,19 @@ export default function Home() {
                 </div>
             </section>
 
-
             {/* =====================================================
           NEWS
           ===================================================== */}
             <section className="home-news">
-
                 <div className="home-news-header">
                     <h2>새로운 소식</h2>
 
-                    <Link
-                        to="/edition"
-                        className="home-news-more"
-                    >
+                    <Link to="/edition" className="home-news-more">
                         더보기 <span>›</span>
                     </Link>
                 </div>
 
-
                 <div className="home-news-list">
-
                     <article className="home-news-card">
                         <div className="home-news-image">
                             <img
@@ -192,7 +181,6 @@ export default function Home() {
                             <time>2026.05.12</time>
                         </div>
                     </article>
-
 
                     <article className="home-news-card">
                         <div className="home-news-image">
@@ -221,7 +209,6 @@ export default function Home() {
                         </div>
                     </article>
 
-
                     <article className="home-news-card">
                         <div className="home-news-image">
                             <img
@@ -248,24 +235,19 @@ export default function Home() {
                             <time>2026.05.08</time>
                         </div>
                     </article>
-
                 </div>
             </section>
-
 
             {/* =====================================================
           FEATURES
           ===================================================== */}
             <section className="home-features">
-
                 <div className="home-features-header">
                     <h2>주요 기능</h2>
                     <span></span>
                 </div>
 
-
                 <div className="home-features-list">
-
                     <Link
                         to="/edition"
                         className="home-feature-card"
@@ -305,7 +287,6 @@ export default function Home() {
                         </p>
                     </Link>
 
-
                     <Link
                         to="/customize"
                         className="home-feature-card"
@@ -338,7 +319,6 @@ export default function Home() {
                             커스터마이징하세요
                         </p>
                     </Link>
-
 
                     <Link
                         to="/cart"
@@ -373,7 +353,6 @@ export default function Home() {
                         </p>
                     </Link>
 
-
                     <Link
                         to="/saved"
                         className="home-feature-card"
@@ -403,16 +382,13 @@ export default function Home() {
                             저장하고 비교하세요
                         </p>
                     </Link>
-
                 </div>
             </section>
-
 
             {/* =====================================================
           VINYL BANNER
           ===================================================== */}
             <section className="home-vinyl-banner">
-
                 <div className="home-vinyl-content">
                     <span className="home-vinyl-badge">
                         LIMITED
@@ -440,17 +416,13 @@ export default function Home() {
                         alt="Oasis Exclusive Vinyl"
                     />
                 </div>
-
             </section>
-
 
             {/* =====================================================
           REAL MINI PLAYER
           ===================================================== */}
             <section className="home-player">
-
                 <div className="home-player-info">
-
                     <div
                         className={`home-player-cover ${isPlaying ? 'playing' : ''
                             }`}
@@ -463,19 +435,45 @@ export default function Home() {
 
                     <div className="home-player-text">
                         <span>NOW PLAYING</span>
-
                         <h3>Wonderwall</h3>
-
                         <p>Oasis</p>
-                    </div>
 
+                        <div className="music-platform-links">
+                            <a
+                                href="https://www.youtube.com/watch?v=bx1Bh8ZvH84"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="music-platform-link youtube"
+                                aria-label="YouTube에서 Wonderwall 듣기"
+                            >
+                                YouTube
+                            </a>
+
+                            <a
+                                href="https://music.apple.com/kr/album/wonderwall/1812930495?i=1812930499"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="music-platform-link apple-music"
+                                aria-label="Apple Music에서 Wonderwall 듣기"
+                            >
+                                Apple Music
+                            </a>
+
+                            <a
+                                href="https://open.spotify.com/track/79RUMZfMNMpqZnswovvTqv"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="music-platform-link spotify"
+                                aria-label="Spotify에서 Wonderwall 듣기"
+                            >
+                                Spotify
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-
                 <div className="home-player-main">
-
                     <div className="home-player-controls">
-
                         <button
                             type="button"
                             onClick={skipBackward}
@@ -506,9 +504,7 @@ export default function Home() {
                         >
                             ›
                         </button>
-
                     </div>
-
 
                     <div
                         className="home-player-progress"
@@ -525,11 +521,8 @@ export default function Home() {
                             }}
                         ></div>
                     </div>
-
                 </div>
-
             </section>
-
         </div>
     );
 }
