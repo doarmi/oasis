@@ -13,8 +13,30 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { auth, db } from '../firebase';
+import definitelyMaybe from '../assets/definitely-maybe.jpg';
+import morningGlory from '../assets/morning-glory.jpg';
+import beHereNow from '../assets/be-here-now.jpg';
+import theMasterplan from '../assets/the-masterplan.jpg';
 
 const ShopContext = createContext(null);
+
+const PRODUCT_IMAGES = {
+  1: definitelyMaybe,
+  2: morningGlory,
+  3: beHereNow,
+  4: theMasterplan,
+};
+
+const restoreProductImage = (item) => ({
+  ...item,
+  image: PRODUCT_IMAGES[item.id] || item.image,
+});
+
+const removeProductImage = (item) => {
+  const productData = { ...item };
+  delete productData.image;
+  return productData;
+};
 
 export function ShopProvider({ children }) {
   const [cart, setCart] = useState([]);
@@ -51,8 +73,16 @@ export function ShopProvider({ children }) {
 
         if (snapshot.exists()) {
           const data = snapshot.data();
-          setCart(Array.isArray(data.cart) ? data.cart : []);
-          setSaved(Array.isArray(data.saved) ? data.saved : []);
+          setCart(
+            Array.isArray(data.cart)
+              ? data.cart.map(restoreProductImage)
+              : [],
+          );
+          setSaved(
+            Array.isArray(data.saved)
+              ? data.saved.map(restoreProductImage)
+              : [],
+          );
         } else {
           setCart([]);
           setSaved([]);
@@ -90,8 +120,8 @@ export function ShopProvider({ children }) {
         await setDoc(
           shopRef,
           {
-            cart,
-            saved,
+            cart: cart.map(removeProductImage),
+            saved: saved.map(removeProductImage),
             updatedAt: serverTimestamp(),
           },
           { merge: true },
