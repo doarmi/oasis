@@ -1,65 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useShop } from '../context/ShopContext';
+import {
+  loadTossPayments,
+  ANONYMOUS,
+} from '@tosspayments/tosspayments-sdk';
 
-function CheckoutModal({ onClose }) {
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
-
-  return (
-    <div
-      className="checkout-modal-overlay"
-      role="presentation"
-      onClick={onClose}
-    >
-      <div
-        className="checkout-modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="checkout-modal-title"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <button
-          type="button"
-          className="checkout-modal-close"
-          aria-label="결제 안내 닫기"
-          onClick={onClose}
-        >
-          ×
-        </button>
-
-        <span className="checkout-modal-label">OASIS STORE</span>
-        <h3 id="checkout-modal-title">결제 안내</h3>
-
-        <p>
-          결제 기능은 데모 버전입니다.
-          <br />
-          실제 결제는 지원되지 않으며, 현재 선택된 상품 정보는 데모용으로만 표시됩니다.
-        </p>
-
-        <button
-          type="button"
-          className="btn-primary full-width"
-          onClick={onClose}
-        >
-          확인
-        </button>
-      </div>
-    </div>
-  );
-}
+const CLIENT_KEY = 'test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm';
 
 export default function Cart() {
   const { cart, removeFromCart, updateQty } = useShop();
-  const [showModal, setShowModal] = useState(false);
+
+  const [isPaymentLoading, setIsPaymentLoading] = useState(false);
 
   const subtotal = cart.reduce((sum, item) => {
     const price = parseFloat(item.price.replace('£', ''));
@@ -69,12 +21,75 @@ export default function Cart() {
   const shipping = cart.length > 0 ? 5 : 0;
   const total = subtotal + shipping;
 
+  useEffect(() => {
+    return () => {
+      setIsPaymentLoading(false);
+    };
+  }, []);
+
+  const handlePayment = async () => {
+    if (cart.length === 0) {
+      return;
+    }
+
+    try {
+      setIsPaymentLoading(true);
+
+      const tossPayments = await loadTossPayments(CLIENT_KEY);
+
+      const widgets = tossPayments.widgets({
+        customerKey: ANONYMOUS,
+      });
+
+      /*
+        OASIS 사이트에서는 파운드(£) 가격을 사용하고 있지만
+        토스페이먼츠 일반결제는 KRW를 사용합니다.
+
+        포트폴리오 테스트용으로:
+        £45.00 → 45,000원
+        처럼 변환해서 결제 금액을 설정합니다.
+      */
+      const paymentAmount = Math.round(total * 1000);
+
+      await widgets.setAmount({
+        currency: 'KRW',
+        value: paymentAmount,
+      });
+
+      const paymentWindow = await widgets.renderPaymentWindow();
+
+      paymentWindow.on('paymentRequest', async () => {
+        try {
+          const orderId = `OASIS_${Date.now()}`;
+
+          const orderName =
+            cart.length === 1
+              ? cart[0].title
+              : `${cart[0].title} 외 ${cart.length - 1}건`;
+
+          await widgets.requestPayment({
+            orderId,
+            orderName,
+            successUrl: `${window.location.origin}/payment/success`,
+            failUrl: `${window.location.origin}/payment/fail`,
+          });
+        } catch (error) {
+          console.error('토스 결제 요청 오류:', error);
+
+          alert('결제 요청 중 오류가 발생했습니다.');
+        }
+      });
+    } catch (error) {
+      console.error('토스페이먼츠 초기화 오류:', error);
+
+      alert('결제창을 불러오지 못했습니다.');
+    } finally {
+      setIsPaymentLoading(false);
+    }
+  };
+
   return (
     <div className="page-cart shop-page">
-      {showModal && (
-        <CheckoutModal onClose={() => setShowModal(false)} />
-      )}
-
       <div className="shop-header">
         <h2>CART</h2>
       </div>
@@ -106,7 +121,10 @@ export default function Cart() {
                   </p>
 
                   <div className="item-actions">
-                    <label className="sr-only" htmlFor={`qty-${item.cartKey}`}>
+                    <label
+                      className="sr-only"
+                      htmlFor={`qty-${item.cartKey}`}
+                    >
                       {item.title} 수량
                     </label>
 
@@ -138,7 +156,8 @@ export default function Cart() {
                 </div>
 
                 <div className="item-price">
-                  £{(
+                  £
+                  {(
                     parseFloat(item.price.replace('£', '')) * item.qty
                   ).toFixed(2)}
 
@@ -177,9 +196,10 @@ export default function Cart() {
             <button
               type="button"
               className="btn-primary full-width"
-              onClick={() => setShowModal(true)}
+              onClick={handlePayment}
+              disabled={isPaymentLoading}
             >
-              결제 진행
+              {isPaymentLoading ? '결제창 준비 중...' : '결제 진행'}
             </button>
           </div>
         )}
