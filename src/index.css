@@ -9831,3 +9831,112 @@ select:focus-visible {
   color: #ffffff;
   transform: translateY(-2px) scale(1.06);
 }
+
+/* =========================================
+   MOBILE DRAWER FINAL FIX
+========================================= */
+
+.drawer-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.55) !important;
+  z-index: 9998 !important;
+}
+
+.drawer {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+
+  width: min(82vw, 360px) !important;
+  height: 100vh !important;
+
+  background: #f3eadb !important;
+  color: #0b1f3a !important;
+
+  z-index: 9999 !important;
+
+  transform: translateX(-105%) !important;
+  transition: transform 0.3s ease !important;
+
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.drawer.open {
+  transform: translateX(0) !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+.drawer-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f3eadb;
+}
+
+.drawer a,
+.drawer button {
+  pointer-events: auto !important;
+}
+
+@media (max-width: 700px) {
+  .drawer {
+    width: 84vw !important;
+    max-width: 340px !important;
+  }
+}
+
+/* =========================================
+   MOBILE HEADER FINAL FIX
+========================================= */
+
+@media (max-width: 700px) {
+  .common-header {
+    display: grid !important;
+    grid-template-columns: 48px 1fr auto !important;
+    align-items: center !important;
+    padding: 10px 14px !important;
+  }
+
+  .hamburger-btn {
+    justify-self: start !important;
+  }
+
+  .header-logo {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+
+    justify-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header-logo a {
+    padding: 7px 12px !important;
+  }
+
+  .header-actions {
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .header-user-btn,
+  .header-cart {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    flex-shrink: 0 !important;
+  }
+}
