@@ -861,6 +861,58 @@ a.home-intro:hover {
   padding: 24px;
 }
 
+
+/* CART - 전체 삭제 헤더 */
+.cart-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(11, 31, 58, 0.18);
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b1f3a;
+}
+
+.cart-clear-button {
+  padding: 0;
+  min-height: auto;
+  border: 0;
+  background: transparent;
+  color: #0b1f3a;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cart-clear-button:hover {
+  opacity: 0.6;
+}
+
+.cart-clear-button:focus-visible {
+  outline: 2px solid #0b1f3a;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .cart-list-header {
+    gap: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .cart-clear-button {
+    font-size: 12px;
+  }
+}
+
 .cart-item {
   display: flex;
   gap: 16px;

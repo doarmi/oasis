@@ -73,11 +73,13 @@ export function ShopProvider({ children }) {
 
         if (snapshot.exists()) {
           const data = snapshot.data();
+
           setCart(
             Array.isArray(data.cart)
               ? data.cart.map(restoreProductImage)
               : [],
           );
+
           setSaved(
             Array.isArray(data.saved)
               ? data.saved.map(restoreProductImage)
@@ -111,6 +113,7 @@ export function ShopProvider({ children }) {
   /* 불러오기가 끝난 뒤 변경된 CART/SAVED를 사용자 문서에 저장합니다. */
   useEffect(() => {
     const userId = userIdRef.current;
+
     if (!shopReady || !userId) return;
 
     const saveShopData = async () => {
@@ -143,9 +146,8 @@ export function ShopProvider({ children }) {
 
   const addToCart = (product) => {
     setCart((previousCart) => {
-      const cartKey = `${product.id}__${product.format || ''}__${
-        product.color || ''
-      }`;
+      const cartKey = `${product.id}__${product.format || ''}__${product.color || ''
+        }`;
 
       const existingItem = previousCart.find(
         (item) => item.cartKey === cartKey,
@@ -176,6 +178,11 @@ export function ShopProvider({ children }) {
     );
   };
 
+  /* 장바구니에 담긴 상품을 모두 삭제합니다. */
+  const clearCart = () => {
+    setCart([]);
+  };
+
   const updateQty = (cartKey, qty) => {
     if (qty < 1) {
       removeFromCart(cartKey);
@@ -196,6 +203,7 @@ export function ShopProvider({ children }) {
       );
 
       if (existingItem) return previousSaved;
+
       return [...previousSaved, product];
     });
   };
@@ -222,6 +230,7 @@ export function ShopProvider({ children }) {
         selectProduct,
         addToCart,
         removeFromCart,
+        clearCart,
         updateQty,
         addToSaved,
         removeFromSaved,
